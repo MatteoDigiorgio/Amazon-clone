@@ -18,13 +18,25 @@ function Banner() {
         interval={5000}
       >
         <div>
-          <img loading="lazy" src="https://links.papareact.com/gi1" alt="" />
+          <img
+            loading="lazy"
+            src="https://links.papareact.com/gi1"
+            alt="Audible ORIGINAL advertisement"
+          />
         </div>
         <div>
-          <img loading="lazy" src="https://links.papareact.com/6ff" alt="" />
+          <img
+            loading="lazy"
+            src="https://links.papareact.com/6ff"
+            alt="prime video advertisement"
+          />
         </div>
         <div>
-          <img loading="lazy" src="https://links.papareact.com/7ma" alt="" />
+          <img
+            loading="lazy"
+            src="https://links.papareact.com/7ma"
+            alt="Amazon music advertisement limited time"
+          />
         </div>
       </Carousel>
     </div>
