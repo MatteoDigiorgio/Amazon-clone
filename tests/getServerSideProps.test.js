@@ -1,26 +1,27 @@
-const getServerSideProps = require("../src/pages/index.js");
+import mock from "./_mocks";
+const getServerSideProps = require("../src/pages/index");
+
+global.fetch = jest.fn(() =>
+  Promise.resolve({
+    json: () => Promise.resolve(mock.ProductsList),
+  })
+);
 
 describe("getServerSideProps", () => {
-  it("Should return a defined value when called getServerSideProps()", async () => {
+  it("When called should return an array of objects with the correct keys", async () => {
     const data = await getServerSideProps();
-    expect(data.props.products).toBeDefined();
-  });
-
-  it("Should return an array of objects when called", async () => {
-    const data = await getServerSideProps();
-    for (let i = 0; i < data.props.products.length; i++) {
-      expect(data.props.products[i]).toStrictEqual({
-        id: expect.any(Number),
-        title: expect.any(String),
-        price: expect.any(Number),
-        description: expect.any(String),
-        category: expect.any(String),
-        image: expect.any(String),
-        rating: expect(data.props.products[i].rating).toStrictEqual({
-          count: expect.any(Number),
-          rate: expect.any(Number),
+    expect(data.props.products).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          id: 1,
+          title: "Title",
+          price: 234,
+          description: "Description",
+          category: "Category",
+          image: "https://image.jpeg",
+          rating: { count: 567, rate: 8.9 },
         }),
-      });
-    }
+      ])
+    );
   });
 });

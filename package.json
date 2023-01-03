@@ -16,6 +16,7 @@
     },
     "testRegex": "(/tests/.*|\\.(test|spec))\\.(ts|tsx|js)$",
     "testPathIgnorePatterns": [
+      "_mocks.js",
       "/next/",
       "/node_modules/"
     ],
