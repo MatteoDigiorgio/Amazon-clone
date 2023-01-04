@@ -1,0 +1,15 @@
+.productFeed {
+  display: grid;
+  grid-auto-flow: row dense;
+}
+
+@media (min-width: 600px) {
+  .productFeed {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 900px) {
+  .productFeed {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

@@ -1,5 +1,5 @@
 import mock from "./_mocks";
-const getServerSideProps = require("../src/pages/index");
+const index = require("../src/pages/index");
 
 global.fetch = jest.fn(() =>
   Promise.resolve({
@@ -9,7 +9,7 @@ global.fetch = jest.fn(() =>
 
 describe("getServerSideProps", () => {
   it("When called should return an array of objects with the correct keys", async () => {
-    const data = await getServerSideProps();
+    const data = await index.getServerSideProps();
     expect(data.props.products).toEqual(
       expect.arrayContaining([
         expect.objectContaining({
