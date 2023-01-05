@@ -20,6 +20,8 @@
 .product__image {
   align-self: center;
   object-fit: contain;
+  max-width: 12.5rem;
+  max-height: 12.5rem;
 }
 
 .product__title {

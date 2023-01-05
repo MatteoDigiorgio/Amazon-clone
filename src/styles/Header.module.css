@@ -1,0 +1,70 @@
+/* TOP NAV */
+
+.header__topNav {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  padding: 0.5rem 0.25rem 0.5rem 0.25rem;
+  background-color: #131921;
+}
+
+.header__topNav__amazonLogo {
+  display: flex;
+  margin: 0.5rem 1rem;
+  flex-grow: 1;
+  align-items: center;
+}
+
+.header__topNav__amazonLogo__image {
+  object-fit: contain;
+  cursor: pointer;
+}
+
+/* TOP NAV ~ SEARCH BAR */
+
+.header__topNav__searchBar {
+  display: none;
+}
+
+.header__topNav__searchBar > input:focus {
+  outline: none;
+}
+
+.header__topNav__searchBar:hover {
+  background-color: var(--yellowHover);
+}
+
+/* TOP NAV FOR SCREENS OVER 700 PIXELS */
+
+@media (min-width: 700px) {
+  .header__topNav__amazonLogo {
+    flex-grow: 0;
+  }
+  .header__topNav__searchBar {
+    display: inherit;
+    background-color: #fbbf24;
+    flex-grow: 1;
+    align-items: center;
+    height: 2.5rem;
+    border-radius: 0.375rem;
+    cursor: pointer;
+  }
+  .header__topNav__searchBar > input {
+    display: inherit;
+    padding: 0.5rem;
+    flex-grow: 1;
+    flex-shrink: 1;
+    width: 1.5rem;
+    height: 100%;
+    border-top-left-radius: 0.375rem;
+    border-bottom-left-radius: 0.375rem;
+  }
+  .header__topNav__searchbar > span {
+    padding: 1rem;
+  }
+}
+
+/* TOP NAV ~ RIGHT SECTION */
+/* TODO: Finish the styling with CSS */
+.header__topNav__rightSection {
+}

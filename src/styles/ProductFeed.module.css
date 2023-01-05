@@ -1,15 +1,36 @@
 .productFeed {
   display: grid;
+  width: 100%;
   grid-auto-flow: row dense;
+  margin-top: -6rem;
+  margin: 0 auto 0 auto;
 }
 
-@media (min-width: 600px) {
+@media (min-width: 700px) {
   .productFeed {
+    width: 100%;
     grid-template-columns: repeat(2, 1fr);
+    margin-top: -10rem;
   }
 }
-@media (min-width: 900px) {
+
+@media (min-width: 1000px) {
   .productFeed {
+    width: 100%;
     grid-template-columns: repeat(3, 1fr);
+    margin-top: -14rem;
   }
 }
+
+@media (min-width: 1300px) {
+  .productFeed {
+    width: 100%;
+    grid-template-columns: repeat(4, 1fr);
+    margin-top: -18rem;
+  }
+}
+
+/* TODO: AGGIUSTARE BOTTONO CHE DEVE DIVENTARE SCURO QUANDO LO SI PREME */
+/* TODO: AGGIUSTARE CSS PRECEDENTI  */
+/* TODO: AGGIUSTARE IMMAGINI DEI PRODOTTI */
+/* ? In @media i can't use var() because media queries aren't attached to HTML elements */

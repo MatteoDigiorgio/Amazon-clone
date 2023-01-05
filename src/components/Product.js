@@ -12,8 +12,14 @@ function Product({ id, title, price, description, category, image, rating }) {
       {/* CATEGORY */}
       <p className={styles.product__category}>{category}</p>
       {/* IMAGE */}
-      <div className={styles.product__image}>
-        <Image src={image} height={200} width={200} alt="Product" />
+      <div>
+        <Image
+          src={image}
+          height={200}
+          width={200}
+          alt="Product"
+          className={styles.product__image}
+        />
       </div>
       {/* TITLE */}
       <h4 className={styles.product__title}>{title}</h4>
