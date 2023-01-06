@@ -1,5 +1,4 @@
 /* TOP NAV */
-
 .header__topNav {
   display: flex;
   align-items: center;
@@ -8,6 +7,7 @@
   background-color: #131921;
 }
 
+/* TOP NAV ~ Amazon Logo */
 .header__topNav__amazonLogo {
   display: flex;
   margin: 0.5rem 1rem;
@@ -20,8 +20,13 @@
   cursor: pointer;
 }
 
-/* TOP NAV ~ SEARCH BAR */
+@media (min-width: 700px) {
+  .header__topNav__amazonLogo {
+    flex-grow: 0;
+  }
+}
 
+/* TOP NAV ~ Search Bar */
 .header__topNav__searchBar {
   display: none;
 }
@@ -34,12 +39,7 @@
   background-color: var(--yellowHover);
 }
 
-/* TOP NAV FOR SCREENS OVER 700 PIXELS */
-
 @media (min-width: 700px) {
-  .header__topNav__amazonLogo {
-    flex-grow: 0;
-  }
   .header__topNav__searchBar {
     display: inherit;
     background-color: #fbbf24;
@@ -65,6 +65,85 @@
 }
 
 /* TOP NAV ~ RIGHT SECTION */
-/* TODO: Finish the styling with CSS */
 .header__topNav__rightSection {
+  display: flex;
+  margin: 0 1rem;
+  color: white;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  white-space: nowrap;
+  align-items: center;
+}
+
+.header__topNav__rightSection > div {
+  cursor: pointer;
+  padding: 0 0.5rem;
+}
+
+.header__topNav__rightSection > div:hover {
+  text-decoration: underline;
+}
+
+.header__topNav__rightSection > div > span {
+  font-weight: 800;
+}
+
+/* TOP NAV ~ BASKET */
+.header__topNav__rightSection__basket {
+  display: flex;
+  position: relative;
+  align-items: center;
+}
+
+.header__topNav__rightSection__basket > p {
+  display: none;
+}
+
+.header__topNav__rightSection__basket > span {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: var(--yellow);
+  color: black;
+  font-weight: 700;
+  text-align: center;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 9999px;
+}
+
+@media (min-width: 700px) {
+  .header__topNav__rightSection__basket > p {
+    display: inline;
+    font-weight: 800;
+  }
+  .header__topNav__rightSection__basket > span {
+    right: 2.7rem;
+  }
+}
+
+/* BOTTOM NAV */
+
+.header__bottomNav {
+  background-color: #232f3e;
+  display: flex;
+  padding: 0.5rem 0.5rem 0.5rem 1.5rem;
+  color: #ffffff;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  align-items: center;
+}
+
+.header__bottomNav > span {
+  display: flex;
+  align-items: center;
+  margin-right: 0.25rem;
+}
+
+.header__bottomNav > p {
+  padding: 0 0.5rem;
+}
+
+.header__bottomNav > p:hover {
+  text-decoration: underline;
 }

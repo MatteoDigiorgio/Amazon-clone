@@ -31,39 +31,37 @@ function Header() {
         </div>
 
         {/* Right section */}
-        <div className="text-white flex items-center text-xs space-x-6 mx-6 whitespace-nowrap">
+        <div className={styles.header__topNav__rightSection}>
           {/* Account */}
-          <div className="link">
+          <div>
             <p>Hello Matteo Digiorgio</p>
-            <p className="navbarBold">Account & Lists</p>
+            <span>Account & Lists</span>
           </div>
 
           {/* Orders */}
-          <div className="link">
+          <div>
             <p>Returns</p>
-            <p className="navbarBold">& Orders</p>
+            <span>& Orders</span>
           </div>
 
           {/* Basket */}
-          <div className="link relative flex items-center">
-            <span className="absolute top-0 right-0 md:right-12 h-4 w-4 bg-yellow-400 text-center rounded-full text-black font-bold">
-              0
-            </span>
+          <div className={styles.header__topNav__rightSection__basket}>
+            <span>0</span>
 
-            <ShoppingCartIcon className="h-10" />
-            <p className="hidden md:inline navbarBold">Basket</p>
+            <ShoppingCartIcon height={40} />
+            <p>Basket</p>
           </div>
         </div>
       </div>
 
       {/* Bottom nav */}
-      <div className="flex items-center space-x-3 p-2 pl-6 bg-amazon_blue-light text-white text-sm">
-        <p className="link flex items-center">
-          <Bars3Icon className="h-6 mr-1" />
-        </p>
-        <p className="link">Prime Video</p>
-        <p className="link">Amazon Business</p>
-        <p className="link">Today's Deals</p>
+      <div className={styles.header__bottomNav}>
+        <span>
+          <Bars3Icon height={24} />
+        </span>
+        <p>Prime Video</p>
+        <p>Amazon Business</p>
+        <p>Today's Deals</p>
       </div>
     </header>
   );

@@ -1,12 +1,14 @@
 import React from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
+import styles from "../styles/Banner.module.css";
 
 function Banner() {
   return (
-    <div className="relative">
+    <div className={styles.banner}>
       {/* Container that overlay the carousel from gray to trasparent */}
-      <div className="absolute w-full h-32 bg-gradient-to-t from-gray-100 to-transparent bottom-0 z-20" />
+      {/* TODO: Implement transparent gradient carousel */}
+      <div className={styles.banner__transparentGradient} />
 
       {/* Carousel for slideshow ads */}
       <Carousel
