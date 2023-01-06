@@ -1,0 +1,9 @@
+.index {
+  background-color: #f3f4f6;
+}
+
+.index__main {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1536px;
+}

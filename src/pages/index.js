@@ -2,16 +2,17 @@ import Head from "next/head";
 import Banner from "../components/Banner";
 import Header from "../components/Header";
 import ProductFeed from "../components/ProductFeed";
+import styles from "../styles/Index.module.css";
 
 export default function Home({ products }) {
   return (
-    <div className="bg-gray-100">
+    <div className={styles.index}>
       <Head>
         <title>Amazon Clone</title>
       </Head>
 
       <Header />
-      <main className="max-w-screen-2xl mx-auto">
+      <main className={styles.index__main}>
         <Banner />
 
         <ProductFeed products={products} />

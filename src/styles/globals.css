@@ -2,17 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Works like a CSS global variable */
-
-@layer components {
-  .link {
-    @apply cursor-pointer hover:underline;
-  }
-  .navbarBold {
-    @apply font-extrabold md:text-sm;
-  }
-}
-
 :root {
   --yellow: #fbbf24;
   --yellowHover: #f59e0b;
