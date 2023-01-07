@@ -2,15 +2,14 @@
   display: grid;
   width: 100%;
   grid-auto-flow: row dense;
-  margin-top: -6rem;
-  margin: 0 auto 0 auto;
+  margin-top: -16rem;
 }
 
 @media (min-width: 700px) {
   .productFeed {
     width: 100%;
     grid-template-columns: repeat(2, 1fr);
-    margin-top: -10rem;
+    margin-top: -22rem;
   }
 }
 
@@ -18,7 +17,7 @@
   .productFeed {
     width: 100%;
     grid-template-columns: repeat(3, 1fr);
-    margin-top: -14rem;
+    margin-top: -28rem;
   }
 }
 
@@ -26,6 +25,6 @@
   .productFeed {
     width: 100%;
     grid-template-columns: repeat(4, 1fr);
-    margin-top: -18rem;
+    margin-top: -38rem;
   }
 }
