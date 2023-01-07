@@ -6,10 +6,6 @@ import styles from "../styles/Banner.module.css";
 function Banner() {
   return (
     <div className={styles.banner}>
-      {/* Container that overlay the carousel from gray to trasparent */}
-      {/* TODO: Implement transparent gradient carousel */}
-      <div className={styles.banner__transparentGradient} />
-
       {/* Carousel for slideshow ads */}
       <Carousel
         autoPlay
@@ -41,6 +37,9 @@ function Banner() {
           />
         </div>
       </Carousel>
+
+      {/* Container that overlay the carousel from gray to trasparent */}
+      <div className={styles.banner__transparentGradient}></div>
     </div>
   );
 }
