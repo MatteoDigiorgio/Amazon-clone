@@ -1,11 +1,11 @@
 .product {
-  display: flex;
+  z-index: 30;
   position: relative;
   flex-direction: column;
+  display: flex;
   margin: 1.25rem;
   padding: 2.5rem;
   background-color: white;
-  z-index: 30;
 }
 
 .product__category {
@@ -40,13 +40,13 @@
 
 .product__description {
   display: -webkit-box;
-  text-overflow: ellipsis;
+  overflow: hidden;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
-  overflow: hidden;
+  margin: 0.5rem 0 0.5rem;
+  text-overflow: ellipsis;
   font-size: 0.75rem;
   line-height: 1rem;
-  margin: 0.5rem 0 0.5rem;
 }
 
 .product__currency {
@@ -65,10 +65,10 @@
 }
 
 .product__prime > p {
+  margin-left: 0.5rem;
   font-size: 0.75rem;
   line-height: 1rem;
   color: #6b7280;
-  margin-left: 0.5rem;
 }
 
 .product__button {
@@ -79,10 +79,10 @@
 }
 
 .product__button {
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  background-image: linear-gradient(#fde68a, var(--yellow));
   border-width: 1px;
   border-color: #fcd34d;
   border-radius: 0.125rem;
+  background-image: linear-gradient(#fde68a, var(--yellow));
+  font-size: 0.875rem;
+  line-height: 1.25rem;
 }

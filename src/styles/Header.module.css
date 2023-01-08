@@ -10,9 +10,9 @@
 /* TOP NAV ~ Amazon Logo */
 .header__topNav__amazonLogo {
   display: flex;
-  margin: 0.5rem 1rem;
   flex-grow: 1;
   align-items: center;
+  margin: 0.5rem 1rem;
 }
 
 .header__topNav__amazonLogo__image {
@@ -42,20 +42,20 @@
 @media (min-width: 700px) {
   .header__topNav__searchBar {
     display: inherit;
-    background-color: #fbbf24;
-    flex-grow: 1;
     align-items: center;
+    flex-grow: 1;
     height: 2.5rem;
     border-radius: 0.375rem;
+    background-color: #fbbf24;
     cursor: pointer;
   }
   .header__topNav__searchBar > input {
     display: inherit;
-    padding: 0.5rem;
     flex-grow: 1;
     flex-shrink: 1;
     width: 1.5rem;
     height: 100%;
+    padding: 0.5rem;
     border-top-left-radius: 0.375rem;
     border-bottom-left-radius: 0.375rem;
   }
@@ -66,18 +66,18 @@
 
 /* TOP NAV ~ RIGHT SECTION */
 .header__topNav__rightSection {
+  align-items: center;
   display: flex;
   margin: 0 1rem;
-  color: white;
   font-size: 0.75rem;
   line-height: 1rem;
   white-space: nowrap;
-  align-items: center;
+  color: white;
 }
 
 .header__topNav__rightSection > div {
-  cursor: pointer;
   padding: 0 0.5rem;
+  cursor: pointer;
 }
 
 .header__topNav__rightSection > div:hover {
@@ -90,9 +90,9 @@
 
 /* TOP NAV ~ BASKET */
 .header__topNav__rightSection__basket {
-  display: flex;
   position: relative;
   align-items: center;
+  display: flex;
 }
 
 .header__topNav__rightSection__basket > p {
@@ -103,13 +103,13 @@
   position: absolute;
   top: 0;
   right: 0;
-  background-color: var(--yellow);
-  color: black;
-  font-weight: 700;
-  text-align: center;
   width: 1rem;
   height: 1rem;
   border-radius: 9999px;
+  background-color: var(--yellow);
+  text-align: center;
+  font-weight: 700;
+  color: black;
 }
 
 @media (min-width: 700px) {
@@ -125,13 +125,13 @@
 /* BOTTOM NAV */
 
 .header__bottomNav {
-  background-color: #232f3e;
   display: flex;
+  align-items: center;
   padding: 0.5rem 0.5rem 0.5rem 1.5rem;
-  color: #ffffff;
+  background-color: #232f3e;
   font-size: 0.875rem;
   line-height: 1.25rem;
-  align-items: center;
+  color: #ffffff;
 }
 
 .header__bottomNav > span {
