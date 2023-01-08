@@ -4,17 +4,17 @@ import { StarIcon } from "@heroicons/react/24/solid";
 import Currency from "react-currency-formatter";
 import styles from "../styles/Product.module.css";
 
-function Product({ id, title, price, description, category, image, rating }) {
-  const [rate] = useState(Math.round(rating));
+function Product(props) {
+  const [rate] = useState(Math.round(props.rating));
   const [hasPrime] = useState(Math.random() < 0.5);
   return (
     <div className={styles.product}>
       {/* CATEGORY */}
-      <p className={styles.product__category}>{category}</p>
+      <p className={styles.product__category}>{props.category}</p>
       {/* IMAGE */}
       <div>
         <Image
-          src={image}
+          src={props.image}
           height={200}
           width={200}
           alt="Product"
@@ -22,7 +22,7 @@ function Product({ id, title, price, description, category, image, rating }) {
         />
       </div>
       {/* TITLE */}
-      <h4 className={styles.product__title}>{title}</h4>
+      <h4 className={styles.product__title}>{props.title}</h4>
 
       {/* STARS */}
       <div className={styles.product__rating}>
@@ -33,10 +33,10 @@ function Product({ id, title, price, description, category, image, rating }) {
           ))}
       </div>
       {/* DESCRIPTION */}
-      <p className={styles.product__description}>{description}</p>
+      <p className={styles.product__description}>{props.description}</p>
       {/* PRICE */}
       <div className={styles.product__currency}>
-        <Currency quantity={price} currency="EUR" />
+        <Currency quantity={props.price} currency="EUR" />
       </div>
 
       {/* RANDOM PRIME BADGE FOR SOME PRODUCTS */}
