@@ -4,9 +4,8 @@ import { Carousel } from "react-responsive-carousel";
 import styles from "../styles/Banner.module.css";
 
 function Banner() {
-  return (
-    <div className={styles.banner}>
-      {/* Carousel for slideshow ads */}
+  const CarouselAds = () => {
+    return (
       <Carousel
         autoPlay
         infiniteLoop
@@ -37,7 +36,12 @@ function Banner() {
           />
         </div>
       </Carousel>
+    );
+  };
 
+  return (
+    <div className={styles.banner}>
+      <CarouselAds />
       {/* Container that overlay the carousel from gray to trasparent */}
       <div className={styles.banner__transparentGradient}></div>
     </div>
