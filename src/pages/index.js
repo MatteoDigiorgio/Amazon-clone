@@ -12,7 +12,7 @@ export default function Home({ products }) {
       </Head>
 
       <Header />
-      <main className={styles.index__main}>
+      <main className={styles.main}>
         <Banner />
 
         <ProductFeed products={products} />
