@@ -1,21 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
+import Link from "next/link";
+import { signIn, signOut, useSession } from "next-auth/react";
 import Image from "next/image";
 import styles from "../styles/Header.module.css";
 import {
   MagnifyingGlassIcon,
   ShoppingCartIcon,
   Bars3Icon,
+  ChevronDownIcon,
 } from "@heroicons/react/24/outline";
 
 function Header() {
+  const { data: session } = useSession();
+
   const AmazonLogo = () => {
     return (
-      <div className={styles.header__topNav__amazonLogo}>
+      <div className={styles.amazonLogo}>
         <Image
           src="https://links.papareact.com/f90"
           width={150}
           height={40}
-          className={styles.header__topNav__amazonLogo__image}
+          className={styles.amazonImage}
         />
       </div>
     );
@@ -24,9 +29,9 @@ function Header() {
   const SearchBar = () => {
     return (
       <>
-        <div className={styles.header__topNav__searchBar}>
+        <div className={styles.searchBar}>
           <input type="text" />
-          <div className={styles.header__topNav__searchBar__searchIcon}>
+          <div className={styles.searchIcon}>
             <MagnifyingGlassIcon width={20} height={20} />
           </div>
         </div>
@@ -35,11 +40,32 @@ function Header() {
   };
 
   const RightSection = () => {
+    const DropDownItem = (props) => {
+      return (
+        <li>
+          <Link passHref href={!session ? "/auth/signin" : "/"}>
+            <p onClick={signOut}>{props.text}</p>
+          </Link>
+        </li>
+      );
+    };
+
     return (
-      <div className={styles.header__topNav__rightSection}>
-        <div>
-          <p>Hello Matteo Digiorgio</p>
-          <p id={styles["bold"]}>Account & Lists</p>
+      <div className={styles.rightSection}>
+        <div className={styles.accountList}>
+          <p>{session ? `Hello, ${session.user.name}` : "Sign In"}</p>
+          <div className={styles.arrow}>
+            <p id={styles["bold"]}>Account & Lists</p>
+            <ChevronDownIcon height={15} />
+          </div>
+
+          <div className={styles.dropDownItems}>
+            <ul>
+              <h1 id={styles["bold"]}>My Account</h1>
+              <DropDownItem text={"LogIn"} />
+              <DropDownItem text={"LogOut"} />
+            </ul>
+          </div>
         </div>
 
         <div>
@@ -47,7 +73,7 @@ function Header() {
           <p id={styles["bold"]}>& Orders</p>
         </div>
 
-        <div className={styles.header__topNav__rightSection__basket}>
+        <div className={styles.basket}>
           <p id={styles["counter"]}>0</p>
           <ShoppingCartIcon height={40} />
           <p>Basket</p>
