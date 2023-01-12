@@ -16,7 +16,7 @@ export default function SignIn({ providers }) {
     );
   };
 
-  const SignInBotton = () => {
+  const SignInButton = () => {
     return (
       <>
         {providers &&
@@ -42,7 +42,7 @@ export default function SignIn({ providers }) {
       <div className={styles.form}>
         <h1>Sign In</h1>
         <div>
-          <SignInBotton />
+          <SignInButton />
         </div>
         <p>
           By continuing, you agree to Amazon's <span>Conditions of Use</span>{" "}
