@@ -119,13 +119,12 @@
   padding: 0.2rem 0;
 }
 
-.header__topNav .rightSection .accountList .dropDownItems > ul > li > p {
+.header__topNav .rightSection .accountList .dropDownItems > ul > li:hover {
   text-decoration: underline;
-  color: #fbbf24;
+  color: var(--yellowHover);
 }
 
-.header__topNav .rightSection .accountList:hover,
-.header__topNav .rightSection .accountList .dropDownItems {
+.header__topNav .rightSection .accountList:hover .dropDownItems {
   display: block;
 }
 
@@ -186,9 +185,11 @@
 .header__bottomNav {
   display: flex;
   align-items: center;
-  padding: 0.5rem 0.5rem 0.5rem 1.5rem;
+  padding: 0.2rem 0.5rem;
+  max-height: 3.5rem;
   background-color: #232f3e;
   font-size: 0.875rem;
+  font-weight: 500;
   line-height: 1.25rem;
   color: #ffffff;
 }
@@ -201,10 +202,11 @@
 }
 
 .header__bottomNav > p {
-  padding: 0 0.5rem;
+  padding: 0.2rem 0.5rem;
 }
 
 .header__bottomNav > p:hover {
+  outline: 1px solid white;
+  border-radius: 0.2rem;
   cursor: pointer;
-  text-decoration: underline;
 }

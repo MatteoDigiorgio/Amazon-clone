@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import Link from "next/link";
-import { signIn, signOut, useSession } from "next-auth/react";
+import { signOut, useSession } from "next-auth/react";
 import Image from "next/image";
 import styles from "../styles/Header.module.css";
 import {
@@ -40,11 +40,24 @@ function Header() {
   };
 
   const RightSection = () => {
+    const dropDownItemsData = [
+      { page: "/", text: "Account" },
+      { page: "/", text: "Orders" },
+      { page: "/", text: "Wish list" },
+      { page: "/", text: "Recommendations" },
+      { page: "/", text: "Kindle Unlimited" },
+      { page: "/", text: "Prime Membership" },
+      { page: "/auth/signin", text: "LogIn" },
+      { page: "/", text: "Exit" },
+    ];
+
     const DropDownItem = (props) => {
       return (
         <li>
-          <Link passHref href={!session ? "/auth/signin" : "/"}>
-            <p onClick={signOut}>{props.text}</p>
+          <Link passHref href={props.page}>
+            <p onClick={props.text === "Exit" ? signOut() : null}>
+              {props.text}
+            </p>
           </Link>
         </li>
       );
@@ -62,8 +75,17 @@ function Header() {
           <div className={styles.dropDownItems}>
             <ul>
               <h1 id={styles["bold"]}>My Account</h1>
-              <DropDownItem text={"LogIn"} />
-              <DropDownItem text={"LogOut"} />
+
+              {/* If the user is logged in, the login option doesn't render. */}
+              {/* Same for the exit option if the user is not logged in. */}
+              {dropDownItemsData.map((item) =>
+                (item.text === "LogIn" && session) ||
+                (item.text === "Exit" && !session) ? (
+                  ""
+                ) : (
+                  <DropDownItem page={item.page} text={item.text} />
+                )
+              )}
             </ul>
           </div>
         </div>
@@ -87,6 +109,7 @@ function Header() {
       <>
         <p id={styles["bars"]}>
           <Bars3Icon height={24} />
+          All
         </p>
         <p>Prime Video</p>
         <p>Amazon Business</p>
@@ -103,7 +126,6 @@ function Header() {
         <SearchBar />
         <RightSection />
       </div>
-
       {/* Bottom nav */}
       <div className={styles.header__bottomNav}>
         <BottomNav />
