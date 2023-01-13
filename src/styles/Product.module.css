@@ -8,7 +8,7 @@
   background-color: white;
 }
 
-.product__category {
+.product .category {
   position: absolute;
   top: 0.5rem;
   right: 0.5rem;
@@ -17,28 +17,28 @@
   font-style: italic;
 }
 
-.product__image {
+.product .image {
   align-self: center;
   object-fit: contain;
   max-width: 12.5rem;
   max-height: 12.5rem;
 }
 
-.product__title {
+.product .title {
   margin: 0.75rem 0 0.75rem;
 }
 
-.product__rating {
+.product .rating {
   display: flex;
 }
 
-.product__rating__stars {
+.product .rating .stars {
   align-self: flex-start;
   height: 1.25rem;
   color: var(--yellowHover);
 }
 
-.product__description {
+.product .description {
   display: -webkit-box;
   overflow: hidden;
   -webkit-line-clamp: 2;
@@ -49,36 +49,36 @@
   line-height: 1rem;
 }
 
-.product__currency {
+.product .currency {
   margin-bottom: 1.25rem;
 }
 
-.product__prime {
+.product .prime {
   display: flex;
   align-items: center;
   margin-top: -1.25rem;
   margin-left: 0.5rem;
 }
 
-.product__prime > img {
+.product .prime > img {
   width: 3rem;
 }
 
-.product__prime > p {
+.product .prime > p {
   margin-left: 0.5rem;
   font-size: 0.75rem;
   line-height: 1rem;
   color: #6b7280;
 }
 
-.product__button {
+.product .button {
   margin-top: auto;
   padding: 0.5rem;
   font-size: 0.75rem;
   line-height: 1rem;
 }
 
-.product__button {
+.product button {
   border-width: 1px;
   border-color: #fcd34d;
   border-radius: 0.125rem;
