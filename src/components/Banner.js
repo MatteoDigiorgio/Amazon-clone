@@ -16,23 +16,29 @@ function Banner() {
       >
         <div>
           <img
+            alt="Audible ORIGINAL advertisement"
+            width="auto"
+            height="auto"
             loading="lazy"
             src="https://links.papareact.com/gi1"
-            alt="Audible ORIGINAL advertisement"
           />
         </div>
         <div>
           <img
+            alt="prime video advertisement"
+            width="auto"
+            height="auto"
             loading="lazy"
             src="https://links.papareact.com/6ff"
-            alt="prime video advertisement"
           />
         </div>
         <div>
           <img
+            alt="Amazon music advertisement limited time"
+            width="auto"
+            height="auto"
             loading="lazy"
             src="https://links.papareact.com/7ma"
-            alt="Amazon music advertisement limited time"
           />
         </div>
       </Carousel>

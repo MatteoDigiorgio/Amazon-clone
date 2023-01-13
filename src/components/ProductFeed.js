@@ -4,20 +4,9 @@ import styles from "../styles/ProductFeed.module.css";
 
 function ProductFeed({ products }) {
   const Products = () => {
-    return products.map(
-      ({ id, title, price, description, category, image, rating }) => (
-        <Product
-          key={id}
-          id={id}
-          title={title}
-          price={price}
-          description={description}
-          category={category}
-          image={image}
-          rating={rating.rate}
-        />
-      )
-    );
+    return products.map((_, i) => (
+      <Product key={products[i].id} product={products[i]} />
+    ));
   };
 
   return (

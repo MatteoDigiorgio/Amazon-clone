@@ -18,6 +18,8 @@
 
 .header__topNav .amazonImage {
   object-fit: contain;
+  width: 150px;
+  height: 40px;
   cursor: pointer;
 }
 

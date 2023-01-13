@@ -16,10 +16,11 @@ function Header() {
   const AmazonLogo = () => {
     return (
       <div className={styles.amazonLogo}>
-        <Image
+        <img
+          alt="Amazon Logo"
+          width="auto"
+          height="auto"
           src="https://links.papareact.com/f90"
-          width={150}
-          height={40}
           className={styles.amazonImage}
         />
       </div>
@@ -54,9 +55,9 @@ function Header() {
     const DropDownItem = (props) => {
       return (
         <li>
-          <Link passHref href={props.page}>
-            <p onClick={props.text === "Exit" ? signOut() : null}>
-              {props.text}
+          <Link passHref href={props.item.page}>
+            <p onClick={props.item.text === "Exit" ? signOut() : null}>
+              {props.item.text}
             </p>
           </Link>
         </li>
@@ -83,7 +84,7 @@ function Header() {
                 (item.text === "Exit" && !session) ? (
                   ""
                 ) : (
-                  <DropDownItem page={item.page} text={item.text} />
+                  <DropDownItem key={item.text} item={item} />
                 )
               )}
             </ul>
