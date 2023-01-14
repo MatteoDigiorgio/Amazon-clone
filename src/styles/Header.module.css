@@ -51,18 +51,24 @@
     display: inherit;
     flex-grow: 1;
     flex-shrink: 1;
+    border: none;
+    border-top-left-radius: 0.375rem;
+    border-bottom-left-radius: 0.375rem;
+    box-sizing: border-box;
     width: 1.5rem;
     height: 100%;
     padding: 0.6rem;
-    border-top-left-radius: 0.375rem;
-    border-bottom-left-radius: 0.375rem;
   }
   .header__topNav .searchBar .searchIcon {
+    box-sizing: border-box;
+    height: 100%;
     padding: 0.6rem;
   }
   .header__topNav .searchBar .searchIcon:hover {
     border-top-right-radius: 0.375rem;
     border-bottom-right-radius: 0.375rem;
+    box-sizing: border-box;
+    height: 100%;
     background-color: var(--yellowHover);
   }
 }
@@ -100,8 +106,10 @@
   z-index: 999;
   display: none;
   margin-top: 10px;
+  left: -5rem;
   border-radius: 0.2rem;
   border: 1px solid lightgray;
+  width: 15rem;
   background-color: white;
   font-size: 0.8rem;
   color: #131921;
@@ -119,10 +127,31 @@
 
 .header__topNav .rightSection .accountList .dropDownItems > ul > li {
   padding: 0.2rem 0;
+  color: black;
 }
 
-.header__topNav .rightSection .accountList .dropDownItems > ul > li:hover {
+.header__topNav
+  .rightSection
+  .accountList
+  .dropDownItems
+  > ul
+  > li
+  > a:visited {
+  color: black;
+}
+
+.header__topNav .rightSection .accountList .dropDownItems > ul > li > a:hover {
   text-decoration: underline;
+  color: var(--yellowHover);
+}
+
+.header__topNav
+  .rightSection
+  .accountList
+  .dropDownItems
+  > ul
+  > li
+  > a:visited:hover {
   color: var(--yellowHover);
 }
 
@@ -134,7 +163,7 @@
   content: "";
   width: 0;
   height: 0;
-  left: 5.85rem;
+  left: 11.5rem;
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
   border-bottom: 10px solid white;
@@ -142,7 +171,7 @@
   bottom: 100%;
 }
 
-#bold {
+.bold {
   font-weight: 800;
 }
 
@@ -157,7 +186,7 @@
   display: none;
 }
 
-#counter {
+.header__topNav .rightSection .basket .counter {
   position: absolute;
   display: inline;
   top: 0.7rem;
@@ -176,9 +205,9 @@
     display: inline;
     font-weight: 800;
   }
-  #counter {
+  .header__topNav .rightSection .basket .counter {
     top: 0.7rem;
-    right: 3.95rem;
+    right: 3.75rem;
   }
 }
 
@@ -187,8 +216,8 @@
 .header__bottomNav {
   display: flex;
   align-items: center;
-  padding: 0.2rem 0.5rem;
   max-height: 3.5rem;
+  padding: 0.2rem 1rem;
   background-color: #232f3e;
   font-size: 0.875rem;
   font-weight: 500;
@@ -196,7 +225,7 @@
   color: #ffffff;
 }
 
-#bars {
+.bars {
   display: flex;
   align-items: center;
   margin-right: 0.25rem;
@@ -204,6 +233,7 @@
 }
 
 .header__bottomNav > p {
+  margin: 0 0.2rem;
   padding: 0.2rem 0.5rem;
 }
 

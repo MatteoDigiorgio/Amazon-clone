@@ -1,7 +1,6 @@
 import React from "react";
 import Link from "next/link";
 import { signOut, useSession } from "next-auth/react";
-import Image from "next/image";
 import styles from "../styles/Header.module.css";
 import {
   MagnifyingGlassIcon,
@@ -16,13 +15,15 @@ function Header() {
   const AmazonLogo = () => {
     return (
       <div className={styles.amazonLogo}>
-        <img
-          alt="Amazon Logo"
-          width="auto"
-          height="auto"
-          src="https://links.papareact.com/f90"
-          className={styles.amazonImage}
-        />
+        <Link passHref href="/">
+          <img
+            alt="Amazon Logo"
+            width="auto"
+            height="auto"
+            src="https://links.papareact.com/f90"
+            className={styles.amazonImage}
+          />
+        </Link>
       </div>
     );
   };
@@ -48,6 +49,13 @@ function Header() {
       { page: "/", text: "Recommendations" },
       { page: "/", text: "Kindle Unlimited" },
       { page: "/", text: "Prime Membership" },
+      { page: "/", text: "Browsing History" },
+      { page: "/", text: "Video Purchases & Rentals" },
+      { page: "/", text: "Content & Devices" },
+      { page: "/", text: "Subscribe & Save Items" },
+      { page: "/", text: "Amazon Credit Cards" },
+      { page: "/", text: "Music Library" },
+      { page: "/", text: "Customer Service" },
       { page: "/auth/signin", text: "LogIn" },
       { page: "/", text: "Exit" },
     ];
@@ -69,13 +77,13 @@ function Header() {
         <div className={styles.accountList}>
           <p>{session ? `Hello, ${session.user.name}` : "Sign In"}</p>
           <div className={styles.arrow}>
-            <p id={styles["bold"]}>Account & Lists</p>
+            <p className={styles.bold}>Account & Lists</p>
             <ChevronDownIcon height={15} />
           </div>
 
           <div className={styles.dropDownItems}>
             <ul>
-              <h1 id={styles["bold"]}>My Account</h1>
+              <h1 className={styles.bold}>My Account</h1>
 
               {/* If the user is logged in, the login option doesn't render. */}
               {/* Same for the exit option if the user is not logged in. */}
@@ -93,11 +101,11 @@ function Header() {
 
         <div>
           <p>Returns</p>
-          <p id={styles["bold"]}>& Orders</p>
+          <p className={styles.bold}>& Orders</p>
         </div>
 
         <div className={styles.basket}>
-          <p id={styles["counter"]}>0</p>
+          <p className={styles.counter}>0</p>
           <ShoppingCartIcon height={40} />
           <p>Basket</p>
         </div>
@@ -108,7 +116,7 @@ function Header() {
   const BottomNav = () => {
     return (
       <>
-        <p id={styles["bars"]}>
+        <p className={styles.bars}>
           <Bars3Icon height={24} />
           All
         </p>

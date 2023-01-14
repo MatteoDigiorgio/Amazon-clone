@@ -22,6 +22,8 @@
 
 .login .nav .amazonLogo .amazonImage {
   object-fit: contain;
+  width: 150px;
+  height: 40px;
   cursor: pointer;
 }
 
@@ -49,7 +51,8 @@
   width: 100%;
   height: 2.2rem;
   background-color: var(--yellow);
-  color: #444;
+  cursor: pointer;
+  color: black;
 }
 
 .login .form > p {

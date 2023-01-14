@@ -73,16 +73,12 @@
 
 .product .button {
   margin-top: auto;
-  padding: 0.5rem;
-  font-size: 0.75rem;
-  line-height: 1rem;
-}
-
-.product button {
   border-width: 1px;
   border-color: #fcd34d;
   border-radius: 0.125rem;
   background-image: linear-gradient(#fde68a, var(--yellow));
+  cursor: pointer;
+  padding: 0.5rem;
   font-size: 0.875rem;
   line-height: 1.25rem;
 }

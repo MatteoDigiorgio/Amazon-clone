@@ -1,17 +1,20 @@
 import { getProviders, signIn, getSession } from "next-auth/react";
 import styles from "../../styles/Signin.module.css";
-import Image from "next/image";
+import Link from "next/link";
 
 export default function SignIn({ providers }) {
   const AmazonLogo = () => {
     return (
       <div className={styles.amazonLogo}>
-        <Image
-          src="https://links.papareact.com/f90"
-          width={150}
-          height={40}
-          className={styles.amazonImage}
-        />
+        <Link passHref href="/">
+          <img
+            alt="Amazon Logo"
+            width="auto"
+            height="auto"
+            src="https://links.papareact.com/f90"
+            className={styles.amazonImage}
+          />
+        </Link>
       </div>
     );
   };
