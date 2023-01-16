@@ -5,7 +5,7 @@ import styles from "../styles/ProductFeed.module.css";
 function ProductFeed({ products }) {
   const Products = () => {
     return products.map((_, i) => (
-      <Product key={products[i].id} product={products[i]} />
+      <Product key={products[i].id} productProps={products[i]} />
     ));
   };
 
