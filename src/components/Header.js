@@ -64,7 +64,7 @@ function Header() {
       return (
         <li>
           <Link passHref href={props.item.page}>
-            <p onClick={props.item.text === "Exit" ? signOut() : null}>
+            <p onClick={props.item.text === "Exit" ? () => signOut() : null}>
               {props.item.text}
             </p>
           </Link>
