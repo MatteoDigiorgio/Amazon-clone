@@ -41,7 +41,7 @@ function Header() {
     );
   };
 
-  const RightSection = () => {
+  const Account = () => {
     const dropDownItemsData = [
       { page: "/", text: "Account" },
       { page: "/", text: "Orders" },
@@ -73,45 +73,51 @@ function Header() {
     };
 
     return (
-      <div className={styles.rightSection}>
-        <div className={styles.accountList}>
-          <p>{session ? `Hello, ${session.user.name}` : "Sign In"}</p>
-          <div className={styles.arrow}>
-            <p className={styles.bold}>Account & Lists</p>
-            <ChevronDownIcon height={15} />
-          </div>
-
-          <div className={styles.dropDownItems}>
-            <ul>
-              <h1 className={styles.bold}>My Account</h1>
-
-              {/* If the user is logged in, the login option doesn't render. */}
-              {/* Same for the exit option if the user is not logged in. */}
-              {dropDownItemsData.map((item) =>
-                (item.text === "LogIn" && session) ||
-                (item.text === "Exit" && !session) ? (
-                  ""
-                ) : (
-                  <DropDownItem key={item.text} item={item} />
-                )
-              )}
-            </ul>
-          </div>
+      <div className={styles.accountList}>
+        <p>{session ? `Hello, ${session.user.name}` : "Sign In"}</p>
+        <div className={styles.arrow}>
+          <p className={styles.bold}>Account & Lists</p>
+          <ChevronDownIcon height={15} />
         </div>
 
-        <div>
-          <p>Returns</p>
-          <p className={styles.bold}>& Orders</p>
-        </div>
+        <div className={styles.dropDownItems}>
+          <ul>
+            <h1 className={styles.bold}>My Account</h1>
 
-        <div className={styles.basket}>
-          <p className={styles.counter}>0</p>
-          <ShoppingCartIcon height={40} />
-          <p>Basket</p>
+            {/* If the user is logged in, the login option doesn't render. */}
+            {/* Same for the exit option if the user is not logged in. */}
+            {dropDownItemsData.map((item) =>
+              (item.text === "LogIn" && session) ||
+              (item.text === "Exit" && !session) ? (
+                ""
+              ) : (
+                <DropDownItem key={item.text} item={item} />
+              )
+            )}
+          </ul>
         </div>
       </div>
     );
   };
+
+  const Orders = () => {
+    return (
+      <div>
+        <p>Returns</p>
+        <p className={styles.bold}>& Orders</p>
+      </div>
+    );
+  };
+
+  const Basket = React.forwardRef(({ onClick, href }, ref) => {
+    return (
+      <div className={styles.basket} href={href} onClick={onClick} ref={ref}>
+        <p className={styles.counter}>0</p>
+        <ShoppingCartIcon height={40} />
+        <p>Basket</p>
+      </div>
+    );
+  });
 
   const BottomNav = () => {
     return (
@@ -133,7 +139,13 @@ function Header() {
       <div className={styles.header__topNav}>
         <AmazonLogo />
         <SearchBar />
-        <RightSection />
+        <div className={styles.rightSection}>
+          <Account />
+          <Orders />
+          <Link passHref href="/checkout" legacyBehavior>
+            <Basket />
+          </Link>
+        </div>
       </div>
       {/* Bottom nav */}
       <div className={styles.header__bottomNav}>
