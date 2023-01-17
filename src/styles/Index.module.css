@@ -1,5 +1,5 @@
 .index {
-  background-color: #f3f4f6;
+  background-color: var(--background-gray);
 }
 
 .index .main {
