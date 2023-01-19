@@ -8,6 +8,8 @@ import {
   Bars3Icon,
   ChevronDownIcon,
 } from "@heroicons/react/24/outline";
+import { useSelector } from "react-redux";
+import { selectItems } from "../slices/basketSlice";
 
 function Header() {
   const { data: session } = useSession();
@@ -110,9 +112,11 @@ function Header() {
   };
 
   const Basket = React.forwardRef(({ onClick, href }, ref) => {
+    const items = useSelector(selectItems);
+
     return (
       <div className={styles.basket} href={href} onClick={onClick} ref={ref}>
-        <p className={styles.counter}>0</p>
+        <p className={styles.counter}>{items.lenght}</p>
         <ShoppingCartIcon height={40} />
         <p>Basket</p>
       </div>

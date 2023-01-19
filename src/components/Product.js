@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { StarIcon } from "@heroicons/react/24/solid";
 import Currency from "react-currency-formatter";
 import styles from "../styles/Product.module.css";
+import { useDispatch } from "react-redux";
+import { addToBasket } from "../slices/basketSlice";
 
 function Product({ productProps }) {
   const [product, setProduct] = useState({
@@ -64,6 +66,19 @@ function Product({ productProps }) {
     );
   };
 
+  const Button = () => {
+    const dispatch = useDispatch();
+    const addItemToBasket = () => {
+      dispatch(addToBasket(product));
+    };
+
+    return (
+      <button onClick={addItemToBasket} className={styles.button}>
+        Add to Basket
+      </button>
+    );
+  };
+
   return (
     <div className={styles.product}>
       <p className={styles.category}>
@@ -81,7 +96,7 @@ function Product({ productProps }) {
         <Price />
       </div>
       <Prime />
-      <button className={styles.button}>Add to Basket</button>
+      <Button />
     </div>
   );
 }

@@ -1,0 +1,20 @@
+.product {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.product .image {
+  object-fit: contain;
+  height: 200px;
+  width: 200px;
+}
+
+.product .props {
+  grid-column: span 3 / span 3;
+}
+
+.product .props .stars {
+  align-self: flex-start;
+  height: 1.25rem;
+  color: var(--yellowHover);
+}
