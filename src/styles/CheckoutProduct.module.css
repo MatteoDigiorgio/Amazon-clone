@@ -1,10 +1,12 @@
 .product {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
+  margin: 1rem 0;
 }
 
 .product .image {
   object-fit: contain;
+  margin: 0 1rem;
   height: 200px;
   width: 200px;
 }
@@ -13,8 +15,21 @@
   grid-column: span 3 / span 3;
 }
 
-.product .props .stars {
-  align-self: flex-start;
-  height: 1.25rem;
-  color: var(--yellowHover);
+.product .props .title {
+  margin: 0.75rem 0 0.5rem;
+}
+
+.product .props .description {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  margin: 0.5rem 0;
+  text-overflow: ellipsis;
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+
+.product .props .price {
+  margin-bottom: 1.25rem;
 }

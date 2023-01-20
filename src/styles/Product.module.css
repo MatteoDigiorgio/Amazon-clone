@@ -25,17 +25,7 @@
 }
 
 .product .title {
-  margin: 0.75rem 0 0.75rem;
-}
-
-.product .rating {
-  display: flex;
-}
-
-.product .rating .stars {
-  align-self: flex-start;
-  height: 1.25rem;
-  color: var(--yellowHover);
+  margin: 0.75rem 0 0.25rem;
 }
 
 .product .description {
@@ -51,24 +41,6 @@
 
 .product .currency {
   margin-bottom: 1.25rem;
-}
-
-.product .prime {
-  display: flex;
-  align-items: center;
-  margin-top: -1.25rem;
-  margin-left: 0.5rem;
-}
-
-.product .prime > img {
-  width: 3rem;
-}
-
-.product .prime > p {
-  margin-left: 0.5rem;
-  font-size: 0.75rem;
-  line-height: 1rem;
-  color: #6b7280;
 }
 
 .product .button {
