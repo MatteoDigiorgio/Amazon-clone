@@ -1,0 +1,9 @@
+.rating {
+  display: flex;
+}
+
+.rating .stars {
+  align-self: flex-start;
+  height: 1.25rem;
+  color: var(--yellowHover);
+}

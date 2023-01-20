@@ -1,0 +1,17 @@
+.prime {
+  display: flex;
+  align-items: center;
+  margin-top: -1.25rem;
+  margin-left: 0.5rem;
+}
+
+.prime > img {
+  width: 3rem;
+}
+
+.prime > p {
+  margin-left: 0.5rem;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  color: #6b7280;
+}
