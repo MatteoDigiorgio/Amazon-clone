@@ -1,10 +1,21 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { addToBasket, removeFromBasket } from "../slices/basketSlice";
 import styles from "../styles/CheckoutProduct.module.css";
 import Price from "./ProductAttributes/Price";
 import Prime from "./ProductAttributes/Prime";
 import Stars from "./ProductAttributes/Stars";
 
 function CheckoutProduct({ product }) {
+  const dispatch = useDispatch();
+  const addItemToBasket = () => {
+    dispatch(addToBasket(product));
+  };
+
+  const removeItemFromBasket = () => {
+    dispatch(removeFromBasket(product));
+  };
+
   const ProductImage = () => {
     return (
       <img
@@ -31,10 +42,20 @@ function CheckoutProduct({ product }) {
     );
   };
 
+  const Buttons = () => {
+    return (
+      <div className={styles.buttons}>
+        <button onClick={addItemToBasket}>Add to Basket</button>
+        <button onClick={removeItemFromBasket}>Remove from Basket</button>
+      </div>
+    );
+  };
+
   return (
     <div className={styles.product}>
       <ProductImage />
       <ProductProps />
+      <Buttons />
     </div>
   );
 }
