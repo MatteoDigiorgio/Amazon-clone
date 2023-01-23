@@ -33,3 +33,22 @@
 .product .props .price {
   margin-bottom: 1.25rem;
 }
+
+.product .buttons {
+  display: flex;
+  margin-top: 0.5rem;
+  flex-direction: column;
+  justify-self: end;
+}
+
+.product .buttons > button {
+  margin-top: 0.5rem;
+  border-width: 1px;
+  border-color: #fcd34d;
+  border-radius: 0.125rem;
+  background-image: linear-gradient(#fde68a, var(--yellow));
+  cursor: pointer;
+  padding: 0.5rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}

@@ -1,26 +1,26 @@
+import { useSession } from "next-auth/react";
 import React from "react";
 import { useSelector } from "react-redux";
 import CheckoutProduct from "../components/CheckoutProduct";
 import Header from "../components/Header";
-import { selectItems } from "../slices/basketSlice";
+import { selectItems, selectTotal } from "../slices/basketSlice";
 import styles from "../styles/Checkout.module.css";
+import Price from "../components/ProductAttributes/Price";
 
 function Checkout() {
   const PrimeDayImage = () => {
     return (
       <img
         alt="Prime Day"
-        width="auto"
-        height="auto"
         src="https://links.papareact.com/ikj"
         className={styles.primeDayImage}
       />
     );
   };
 
-  const Products = () => {
-    const items = useSelector(selectItems);
+  const items = useSelector(selectItems);
 
+  const Products = () => {
     return (
       <div className={styles.products}>
         <h1>
@@ -34,6 +34,28 @@ function Checkout() {
     );
   };
 
+  const Subtotal = () => {
+    const { data: session } = useSession();
+    const total = useSelector(selectTotal);
+    return (
+      <>
+        <h2>
+          Subtotal ({items.lenght} items):
+          <span>
+            <Price price={total} />
+          </span>
+        </h2>
+
+        <button
+          disabled={!session}
+          className={session ? styles.button : styles.button__notSignIn}
+        >
+          {!session ? "Sign in to checkout" : "Proceed to checkout"}
+        </button>
+      </>
+    );
+  };
+
   return (
     <div className={styles.checkout}>
       <Header />
@@ -44,7 +66,9 @@ function Checkout() {
           <Products />
         </div>
 
-        <div className={styles.subtotal}></div>
+        <div className={styles.subtotal}>
+          <Subtotal />
+        </div>
       </main>
     </div>
   );
