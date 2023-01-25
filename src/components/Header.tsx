@@ -62,7 +62,12 @@ function Header() {
       { page: "/", text: "Exit" },
     ];
 
-    const DropDownItem = (props) => {
+    type DropDownProps = {
+      key: string;
+      item: { page: string; text: string };
+    };
+
+    const DropDownItem = (props: DropDownProps) => {
       return (
         <li>
           <Link passHref href={props.item.page}>
@@ -111,17 +116,19 @@ function Header() {
     );
   };
 
-  const Basket = React.forwardRef(({ onClick, href }, ref) => {
+  const Basket = () => {
     const items = useSelector(selectItems);
 
     return (
-      <div className={styles.basket} href={href} onClick={onClick} ref={ref}>
-        <p className={styles.counter}>{items.lenght}</p>
-        <ShoppingCartIcon height={40} />
-        <p>Basket</p>
-      </div>
+      <Link href="checkout">
+        <div className={styles.basket}>
+          <p className={styles.counter}>{items.lenght}</p>
+          <ShoppingCartIcon height={40} />
+          <p>Basket</p>
+        </div>
+      </Link>
     );
-  });
+  };
 
   const BottomNav = () => {
     return (
@@ -132,7 +139,7 @@ function Header() {
         </p>
         <p>Prime Video</p>
         <p>Amazon Business</p>
-        <p>Today's Deals</p>
+        <p>Today&#39;s Deals</p>
       </>
     );
   };

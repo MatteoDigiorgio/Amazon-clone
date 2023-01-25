@@ -16,7 +16,7 @@ export const basketSlice = createSlice({
         (basketItems) => basketItems.id === action.payload.id
       );
 
-      let newBasket = [...state.items];
+      const newBasket = [...state.items];
 
       if (index >= 0) {
         // The item exists in the basket

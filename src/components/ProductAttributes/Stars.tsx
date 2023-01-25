@@ -9,7 +9,7 @@ function Stars({ product }) {
   return (
     <div className={styles.rating}>
       {Array(rate)
-        .fill()
+        .fill(rate)
         .map((_, i) => (
           <StarIcon
             key={`Star-${product.id ? product.id : ""}-${Math.random()}`}

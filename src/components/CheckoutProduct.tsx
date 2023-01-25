@@ -1,12 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import { useDispatch } from "react-redux";
 import { addToBasket, removeFromBasket } from "../slices/basketSlice";
 import styles from "../styles/CheckoutProduct.module.css";
+import Product from "./Product";
 import Price from "./ProductAttributes/Price";
 import Prime from "./ProductAttributes/Prime";
 import Stars from "./ProductAttributes/Stars";
 
-function CheckoutProduct({ product }) {
+function CheckoutProduct(product: Product) {
   const dispatch = useDispatch();
   const addItemToBasket = () => {
     dispatch(addToBasket(product));

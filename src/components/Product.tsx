@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { ReactElement, useEffect, useState } from "react";
 import styles from "../styles/Product.module.css";
 import { useDispatch } from "react-redux";
 import { addToBasket } from "../slices/basketSlice";
@@ -6,19 +6,26 @@ import Price from "./ProductAttributes/Price";
 import Stars from "./ProductAttributes/Stars";
 import Prime from "./ProductAttributes/Prime";
 
-function Product({ productProps }) {
+type Product = {
+  id: number;
+  key: number;
+  category: string;
+  image: string;
+  title: string;
+  rating: { rate: number; count: number };
+  description: string;
+  price: number;
+  hasPrime?: boolean;
+};
+
+type Props = {
+  productProps: Product;
+};
+
+function Product({ productProps }: Props): ReactElement {
   const [hasPrime] = useState(Math.random() < 0.5);
-  const [product, setProduct] = useState({
-    id: 0,
-    key: 0,
-    category: "",
-    image: "",
-    title: "",
-    rating: { rate: 0, count: 0 },
-    description: "",
-    price: 0,
-    hasPrime: false,
-  });
+
+  const [product, setProduct] = useState<Product>();
 
   useEffect(() => {
     productProps.hasPrime = hasPrime;
