@@ -24,7 +24,7 @@ function Checkout() {
     return (
       <div className={styles.products}>
         <h1>
-          {items.lenght === 0 ? "Your Basket is empty" : "Shopping Basket"}
+          {items.length === 0 ? "Your Basket is empty" : "Shopping Basket"}
         </h1>
 
         {items.map((item, i) => (
@@ -40,7 +40,7 @@ function Checkout() {
     return (
       <>
         <h2>
-          Subtotal ({items.lenght} items):
+          Subtotal ({items.length} items):
           <span>
             <Price price={total} />
           </span>
