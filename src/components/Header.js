@@ -116,7 +116,7 @@ function Header() {
 
     return (
       <div className={styles.basket} href={href} onClick={onClick} ref={ref}>
-        <p className={styles.counter}>{items.lenght}</p>
+        <p className={styles.counter}>{items.length}</p>
         <ShoppingCartIcon height={40} />
         <p>Basket</p>
       </div>
