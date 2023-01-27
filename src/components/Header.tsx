@@ -111,17 +111,19 @@ function Header() {
     );
   };
 
-  const Basket = React.forwardRef(({ onClick, href }, ref) => {
+  const Basket = () => {
     const items = useSelector(selectItems);
 
     return (
-      <div className={styles.basket} href={href} onClick={onClick} ref={ref}>
-        <p className={styles.counter}>{items.length}</p>
-        <ShoppingCartIcon height={40} />
-        <p>Basket</p>
-      </div>
+      <Link href="checkout">
+        <div className={styles.basket}>
+          <p className={styles.counter}>{items.lenght}</p>
+          <ShoppingCartIcon height={40} />
+          <p>Basket</p>
+        </div>
+      </Link>
     );
-  });
+  };
 
   const BottomNav = () => {
     return (

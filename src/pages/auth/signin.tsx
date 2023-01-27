@@ -1,8 +1,9 @@
 import { getProviders, signIn, getSession } from "next-auth/react";
 import styles from "../../styles/Signin.module.css";
 import Link from "next/link";
+import { authOptions } from "../api/auth/[...nextauth]";
 
-export default function SignIn({ providers }) {
+export default function SignIn({ providers }: typeof authOptions) {
   const AmazonLogo = () => {
     return (
       <div className={styles.amazonLogo}>
@@ -48,8 +49,8 @@ export default function SignIn({ providers }) {
           <SignInButton />
         </div>
         <p>
-          By continuing, you agree to Amazon's <span>Conditions of Use</span>{" "}
-          and <span>Privacy Notice</span>.
+          By continuing, you agree to Amazon&#39;s{" "}
+          <span>Conditions of Use</span> and <span>Privacy Notice</span>.
         </p>
       </div>
     </div>
