@@ -6,6 +6,7 @@ import Header from "../components/Header";
 import { selectItems, selectTotal } from "../slices/basketSlice";
 import styles from "../styles/Checkout.module.css";
 import Price from "../components/ProductAttributes/Price";
+import { ProductProps } from "../../types";
 
 function Checkout() {
   const PrimeDayImage = () => {
@@ -18,7 +19,7 @@ function Checkout() {
     );
   };
 
-  const items = useSelector(selectItems);
+  const items: Array<ProductProps> = useSelector(selectItems);
 
   const Products = () => {
     return (
@@ -28,7 +29,7 @@ function Checkout() {
         </h1>
 
         {items.map((item, i) => (
-          <CheckoutProduct key={i} product={item} />
+          <CheckoutProduct key={i} productProps={item} />
         ))}
       </div>
     );

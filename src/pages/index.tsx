@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { ReactElement } from "react";
-import { ProductsProps } from "../../types";
+import { ProductProps } from "../../types";
 import Banner from "../components/Banner";
 import Header from "../components/Header";
 import ProductFeed from "../components/ProductFeed";
@@ -9,7 +9,7 @@ import styles from "../styles/Index.module.css";
 export default function Home({
   products,
 }: {
-  products: ProductsProps;
+  products: Array<ProductProps>;
 }): ReactElement {
   return (
     <>
@@ -31,7 +31,7 @@ export default function Home({
 
 // Function that fetch data from fakestore api to populate the website with products
 export async function getServerSideProps() {
-  const products: ProductsProps = await fetch(
+  const products: Array<ProductProps> = await fetch(
     "https://fakestoreapi.com/products"
   ).then((res) => res.json());
   return {
@@ -40,5 +40,3 @@ export async function getServerSideProps() {
     },
   };
 }
-
-// module.exports = getServerSideProps;

@@ -2,10 +2,12 @@ import { Provider } from "react-redux";
 import { SessionProvider } from "next-auth/react";
 import { store } from "../app/store";
 import "../styles/globals.css";
+import { AppProps } from "next/app";
+import { CustomPageProps } from "../../types";
 
-const MyApp = ({ Component, pageProps: { session, ...pageProps } }) => {
+const MyApp = ({ Component, pageProps }: AppProps<CustomPageProps>) => {
   return (
-    <SessionProvider session={session}>
+    <SessionProvider session={pageProps.session}>
       <Provider store={store}>
         <Component {...pageProps} />
       </Provider>

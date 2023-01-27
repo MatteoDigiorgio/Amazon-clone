@@ -1,25 +1,30 @@
-import React, { useState } from "react";
+import React, { ReactElement } from "react";
 import { useDispatch } from "react-redux";
 import { addToBasket, removeFromBasket } from "../slices/basketSlice";
 import styles from "../styles/CheckoutProduct.module.css";
 import Price from "./ProductAttributes/Price";
 import Prime from "./ProductAttributes/Prime";
 import Stars from "./ProductAttributes/Stars";
+import { ProductProps } from "../../types";
 
-function CheckoutProduct({ product }) {
+function CheckoutProduct({
+  productProps,
+}: {
+  productProps: ProductProps;
+}): ReactElement {
   const dispatch = useDispatch();
   const addItemToBasket = () => {
-    dispatch(addToBasket(product));
+    dispatch(addToBasket(productProps));
   };
 
   const removeItemFromBasket = () => {
-    dispatch(removeFromBasket(product));
+    dispatch(removeFromBasket(productProps));
   };
 
   const ProductImage = () => {
     return (
       <img
-        src={product.image}
+        src={productProps.image}
         height="auto"
         width="auto"
         alt="Product"
@@ -31,13 +36,13 @@ function CheckoutProduct({ product }) {
   const ProductProps = () => {
     return (
       <div className={styles.props}>
-        <p className={styles.title}>{product.title}</p>
-        <Stars product={{ rating: product.rating, id: product.id }} />
-        <p className={styles.description}>{product.description}</p>
+        <p className={styles.title}>{productProps.title}</p>
+        <Stars product={{ rating: productProps.rating, id: productProps.id }} />
+        <p className={styles.description}>{productProps.description}</p>
         <div className={styles.price}>
-          <Price price={product.price} />
+          <Price price={productProps.price} />
         </div>
-        <Prime hasPrime={product.hasPrime} />
+        <Prime hasPrime={productProps.hasPrime} />
       </div>
     );
   };
