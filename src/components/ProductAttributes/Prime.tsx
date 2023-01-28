@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "../../styles/Prime.module.css";
 
-function Prime({ hasPrime }) {
+function Prime({ hasPrime }: { hasPrime: boolean }) {
   return (
     <>
       {hasPrime && (

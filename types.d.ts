@@ -1,4 +1,10 @@
-export type Product = {
+import { Session } from "next-auth";
+
+export interface CustomPageProps {
+  session: Session;
+}
+
+export type ProductProps = {
   id: number;
   key: number;
   category: string;
@@ -10,9 +16,5 @@ export type Product = {
   };
   description: string;
   price: number;
-  hasPrime?: boolean;
+  hasPrime: boolean;
 };
-
-export type ProductsProps = {
-  product: Product;
-}[];

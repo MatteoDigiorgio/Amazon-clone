@@ -1,23 +1,20 @@
 import React, { ReactElement } from "react";
 import Product from "./Product";
 import styles from "../styles/ProductFeed.module.css";
-import { ProductsProps } from "../../types";
-
+import { ProductProps } from "../../types";
 function ProductFeed({
   productsProps,
 }: {
-  productsProps: ProductsProps;
+  productsProps: Array<ProductProps>;
 }): ReactElement {
   const Products = () => {
     return (
       <>
-        {productsProps?.map((productProps) => (
-          <Product
-            key={productProps?.product?.id}
-            productProps={productProps?.product}
-          />
+        {productsProps.map((product) => (
+          <>
+            <Product key={product.id} productProps={product} />
+          </>
         ))}
-        ;
       </>
     );
   };

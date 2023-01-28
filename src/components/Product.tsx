@@ -1,13 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React, { ReactElement, useEffect, useState } from "react";
 import styles from "../styles/Product.module.css";
 import { useDispatch } from "react-redux";
 import { addToBasket } from "../slices/basketSlice";
 import Price from "./ProductAttributes/Price";
 import Stars from "./ProductAttributes/Stars";
 import Prime from "./ProductAttributes/Prime";
-import { Product } from "../../types";
+import { ProductProps } from "../../types";
 
-function Product({ productProps }: { productProps: Product }) {
+function Product({
+  productProps,
+}: {
+  productProps: ProductProps;
+}): ReactElement {
   const [hasPrime] = useState(Math.random() < 0.5);
   const [product, setProduct] = useState({
     id: 0,
@@ -18,10 +22,11 @@ function Product({ productProps }: { productProps: Product }) {
     rating: { rate: 0, count: 0 },
     description: "",
     price: 0,
+    hasPrime: false,
   });
 
   useEffect(() => {
-    // productProps.hasPrime = hasPrime;
+    productProps.hasPrime = hasPrime;
     setProduct(productProps);
   }, []);
 
@@ -54,15 +59,15 @@ function Product({ productProps }: { productProps: Product }) {
     <div className={styles.product}>
       <p className={styles.category}>{product.category}</p>
       <ProductImage />
-      <h4 className={styles.title}>{product?.title}</h4>
+      <h4 className={styles.title}>{product.title}</h4>
       <div>
-        <Stars product={{ rating: product?.rating, id: product?.id }} />
+        <Stars product={{ rating: product.rating, id: product.id }} />
       </div>
-      <p className={styles.description}>{product?.description}</p>
+      <p className={styles.description}>{product.description}</p>
       <div className={styles.currency}>
-        <Price price={product?.price} />
+        <Price price={product.price} />
       </div>
-      <Prime hasPrime={product?.hasPrime} />
+      <Prime hasPrime={product.hasPrime} />
       <Button />
     </div>
   );
