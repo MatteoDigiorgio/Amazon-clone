@@ -2,10 +2,10 @@ import { useSession } from "next-auth/react";
 import React from "react";
 import { useSelector } from "react-redux";
 import CheckoutProduct from "../components/CheckoutProduct";
-import Header from "../components/Header";
+import Header from "../app/Header";
 import { selectItems, selectTotal } from "../slices/basketSlice";
 import styles from "../styles/Checkout.module.css";
-import Price from "../components/ProductAttributes/Price";
+import Price from "../components/(attributes)/Price";
 import { ProductProps } from "../../types";
 
 function Checkout() {

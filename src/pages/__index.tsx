@@ -1,10 +1,10 @@
 import Head from "next/head";
 import { ReactElement } from "react";
 import { ProductProps } from "../../types";
-import Banner from "../components/Banner";
-import Header from "../components/Header";
-import ProductFeed from "../components/ProductFeed";
-import styles from "../styles/Index.module.css";
+import Banner from "../app/(productsFeed)/Banner";
+import Header from "../app/Header";
+import ProductFeed from "../app/(productsFeed)/page";
+// import styles from "../styles/Index.module.css";
 
 export default function Home({
   products,
