@@ -18,3 +18,8 @@ export type ProductProps = {
   price: number;
   hasPrime: boolean;
 };
+
+export type DropDownItem = {
+  page: string;
+  text: string;
+};
