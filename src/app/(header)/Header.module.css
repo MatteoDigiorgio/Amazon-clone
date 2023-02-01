@@ -178,11 +178,14 @@
 /* TOP NAV ~ BASKET */
 .header__topNav .rightSection .basket {
   position: relative;
-  align-items: center;
   display: flex;
 }
 
-.header__topNav .rightSection .basket > p {
+.header__topNav .rightSection .basket > a:visited {
+  color: white;
+}
+
+.header__topNav .rightSection .basket > a > p {
   display: none;
 }
 
@@ -201,11 +204,18 @@
 }
 
 @media (min-width: 700px) {
-  .header__topNav .rightSection .basket > p {
+  .header__topNav .rightSection .basket > a {
+    align-items: center;
+    position: relative;
+    display: flex;
+  }
+
+  .header__topNav .rightSection .basket > a > p {
     display: inline;
     font-weight: 800;
   }
   .header__topNav .rightSection .basket .counter {
+    z-index: 999;
     top: 0.7rem;
     right: 3.75rem;
   }

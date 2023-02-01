@@ -67,9 +67,8 @@ function Header() {
         <div className={styles.rightSection}>
           <AccountMenu />
           <Orders />
-          <Link passHref href="/checkout" legacyBehavior>
-            <Basket />
-          </Link>
+
+          <Basket />
         </div>
       </div>
       {/* Bottom nav */}

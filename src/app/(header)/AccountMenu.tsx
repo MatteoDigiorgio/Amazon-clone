@@ -26,12 +26,12 @@ function AccountMenu() {
     { page: "/", text: "Exit" },
   ];
 
-  const DropDownItem = (item: DropDownItem) => {
+  const DropDownItem = (props: { key: string; item: DropDownItem }) => {
     return (
       <li>
-        <Link passHref href={`${item.page}`}>
-          <p onClick={item.text === "Exit" ? () => signOut() : null}>
-            {item.text}
+        <Link passHref href={`${props.item.page}`}>
+          <p onClick={props.item.text === "Exit" ? () => signOut() : void 0}>
+            {props.item.text}
           </p>
         </Link>
       </li>

@@ -1,68 +1,75 @@
 "use client";
-import React, { ReactElement } from "react";
-import dynamic from "next/dynamic";
-import { useDispatch } from "react-redux";
-import { addToBasket, removeFromBasket } from "../../slices/basketSlice";
-import styles from "./CheckoutProduct.module.css";
+import React from "react";
+import { useSession } from "next-auth/react";
+import { useSelector } from "react-redux";
+import { selectItems, selectTotal } from "../../slices/basketSlice";
 import { ProductProps } from "../../../types";
+import styles from "./Checkout.module.css";
+import Header from "../(header)/Header";
+import CheckoutProduct from "./CheckoutProduct";
 import Price from "../(productsFeed)/(attributes)/Price";
-import Prime from "../(productsFeed)/(attributes)/Prime";
-import Stars from "../(productsFeed)/(attributes)/Stars";
 
-function Checkout({
-  productProps,
-}: {
-  productProps: ProductProps;
-}): ReactElement {
-  const dispatch = useDispatch();
-  const addItemToBasket = () => {
-    dispatch(addToBasket(productProps));
-  };
-
-  const removeItemFromBasket = () => {
-    dispatch(removeFromBasket(productProps));
-  };
-
-  const ProductImage = () => {
+function Checkout() {
+  const PrimeDayImage = () => {
     return (
       <img
-        src={productProps.image}
-        height="auto"
-        width="auto"
-        alt="Product"
-        className={styles.image}
+        alt="Prime Day"
+        src="https://links.papareact.com/ikj"
+        className={styles.primeDayImage}
       />
     );
   };
 
-  const ProductProps = () => {
+  const items: Array<ProductProps> = useSelector(selectItems);
+
+  const Products = () => {
     return (
-      <div className={styles.props}>
-        <p className={styles.title}>{productProps.title}</p>
-        <Stars product={{ rating: productProps.rating, id: productProps.id }} />
-        <p className={styles.description}>{productProps.description}</p>
-        <div className={styles.price}>
-          <Price price={productProps.price} />
-        </div>
-        <Prime hasPrime={productProps.hasPrime} />
+      <div className={styles.products}>
+        <h1>
+          {items.length === 0 ? "Your Basket is empty" : "Shopping Basket"}
+        </h1>
+
+        {items.map((item, i) => (
+          <CheckoutProduct key={i} productProps={item} />
+        ))}
       </div>
     );
   };
 
-  const Buttons = () => {
+  const Subtotal = () => {
+    const { data: session } = useSession();
+    const total = useSelector(selectTotal);
     return (
-      <div className={styles.buttons}>
-        <button onClick={addItemToBasket}>Add to Basket</button>
-        <button onClick={removeItemFromBasket}>Remove from Basket</button>
-      </div>
+      <>
+        <h2>
+          Subtotal ({items.length} items):
+          <span>
+            <Price price={total} />
+          </span>
+        </h2>
+
+        <button
+          disabled={!session}
+          className={session ? styles.button : styles.button__notSignIn}
+        >
+          {!session ? "Sign in to checkout" : "Proceed to checkout"}
+        </button>
+      </>
     );
   };
 
   return (
-    <div className={styles.product}>
-      <ProductImage />
-      <ProductProps />
-      <Buttons />
+    <div className={styles.checkout}>
+      <main className={styles.main}>
+        <div className={styles.basket}>
+          <PrimeDayImage />
+          <Products />
+        </div>
+
+        <div className={styles.subtotal}>
+          <Subtotal />
+        </div>
+      </main>
     </div>
   );
 }

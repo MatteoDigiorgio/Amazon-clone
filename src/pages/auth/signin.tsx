@@ -1,5 +1,5 @@
 import { getProviders, signIn, getSession } from "next-auth/react";
-import styles from "../../styles/Signin.module.css";
+import styles from "./Signin.module.css";
 import Link from "next/link";
 import { authOptions } from "../api/auth/[...nextauth]";
 
