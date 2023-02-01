@@ -7,20 +7,22 @@ import { selectItems } from "../../slices/basketSlice";
 import { ShoppingCartIcon } from "@heroicons/react/24/outline";
 
 function Basket() {
-  const Test = () => {
+  const Checkout = () => {
     const items = useSelector(selectItems);
     return (
-      <Link href="checkout">
+      <>
         <div className={styles.basket}>
-          <p className={styles.counter}>{items.lenght}</p>
-          <ShoppingCartIcon height={40} />
-          <p>Basket</p>
+          <p className={styles.counter}>{items.length}</p>
+          <Link href="/checkout">
+            <ShoppingCartIcon height={40} />
+            <p>Basket</p>
+          </Link>
         </div>
-      </Link>
+      </>
     );
   };
 
-  return <Test />;
+  return <Checkout />;
 }
 
 export default Basket;

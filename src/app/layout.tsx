@@ -1,17 +1,13 @@
 import React from "react";
-import Banner from "./(productsFeed)/Banner";
-import ProductFeed from "./(productsFeed)/page";
-import Header from "../app/(header)/Header";
 import ProvidersWrapper from "./ProvidersWrapper";
-import styles from "./Index.module.css";
+import "./globals.css";
+import Header from "./(header)/Header";
 
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  // .then((res) =>  const products: Array<ProductProps> = res);
-
   return (
     <html>
       <head>
@@ -20,10 +16,6 @@ export default function RootLayout({
       <body>
         <ProvidersWrapper>
           <Header />
-          <main className={styles.main}>
-            <Banner />
-            <ProductFeed />
-          </main>
           {children}
         </ProvidersWrapper>
       </body>

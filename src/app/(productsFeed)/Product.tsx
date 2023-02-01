@@ -43,6 +43,21 @@ function Product({
     );
   };
 
+  const ProductProps = () => {
+    return (
+      <>
+        <p className={styles.category}>{product.category}</p>
+        <h4 className={styles.title}>{product.title}</h4>
+        <Stars product={{ rating: product.rating, id: product.id }} />
+        <p className={styles.description}>{product.description}</p>
+        <div className={styles.currency}>
+          <Price price={product.price} />
+        </div>
+        <Prime hasPrime={product.hasPrime} />
+      </>
+    );
+  };
+
   const Button = () => {
     const dispatch = useDispatch();
     const addItemToBasket = () => {
@@ -58,17 +73,8 @@ function Product({
 
   return (
     <div className={styles.product}>
-      <p className={styles.category}>{product.category}</p>
       <ProductImage />
-      <h4 className={styles.title}>{product.title}</h4>
-      <div>
-        <Stars product={{ rating: product.rating, id: product.id }} />
-      </div>
-      <p className={styles.description}>{product.description}</p>
-      <div className={styles.currency}>
-        <Price price={product.price} />
-      </div>
-      <Prime hasPrime={product.hasPrime} />
+      <ProductProps />
       <Button />
     </div>
   );
