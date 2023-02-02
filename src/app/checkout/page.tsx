@@ -5,7 +5,6 @@ import { useSelector } from "react-redux";
 import { selectItems, selectTotal } from "../../slices/basketSlice";
 import { ProductProps } from "../../../types";
 import styles from "./Checkout.module.css";
-import Header from "../(header)/Header";
 import CheckoutProduct from "./CheckoutProduct";
 import Price from "../(productsFeed)/(attributes)/Price";
 

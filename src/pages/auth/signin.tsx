@@ -1,4 +1,5 @@
 import { getProviders, signIn, getSession } from "next-auth/react";
+import "../../app/globals.css";
 import styles from "./Signin.module.css";
 import Link from "next/link";
 import { authOptions } from "../api/auth/[...nextauth]";
@@ -57,7 +58,7 @@ export default function SignIn({ providers }: typeof authOptions) {
   );
 }
 
-export async function getServerSideProps(context) {
+export async function getServerSideProps(context: { req: never }) {
   const { req } = context;
   const session = await getSession({ req });
   const providers = await getProviders();
