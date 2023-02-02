@@ -23,11 +23,10 @@ function Product({
     rating: { rate: 0, count: 0 },
     description: "",
     price: 0,
-    hasPrime: false,
+    hasPrime: hasPrime,
   });
 
   useEffect(() => {
-    productProps.hasPrime = hasPrime;
     setProduct(productProps);
   }, []);
 
