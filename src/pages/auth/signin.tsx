@@ -1,3 +1,4 @@
+"use client"
 import { getProviders, signIn, getSession } from "next-auth/react";
 import styles from "./Signin.module.css";
 import Link from "next/link";
