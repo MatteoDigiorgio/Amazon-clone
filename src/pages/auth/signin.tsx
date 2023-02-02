@@ -58,7 +58,7 @@ export default function SignIn({ providers }: typeof authOptions) {
   );
 }
 
-export async function getServerSideProps(context: { req: never }) {
+export async function getServerSideProps(context: { req: any }) {
   const { req } = context;
   const session = await getSession({ req });
   const providers = await getProviders();
