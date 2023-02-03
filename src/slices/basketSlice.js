@@ -21,6 +21,7 @@ export const basketSlice = createSlice({
 
       if (index >= 0) {
         // The item exists in the basket
+        newBasket.splice(index, 1);
       }
 
       state.items = newBasket;
