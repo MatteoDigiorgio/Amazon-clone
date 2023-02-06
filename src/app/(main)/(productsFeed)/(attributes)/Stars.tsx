@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { StarIcon } from "@heroicons/react/24/solid";
 import styles from "./Stars.module.css";
-import { ProductProps } from "../../../../types";
+import { ProductProps } from "../../../../../types";
 
 function Stars({
   product,

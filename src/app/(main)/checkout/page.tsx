@@ -2,8 +2,8 @@
 import React from "react";
 import { useSession } from "next-auth/react";
 import { useSelector } from "react-redux";
-import { selectItems, selectTotal } from "../../slices/basketSlice";
-import { ProductProps } from "../../../types";
+import { selectItems, selectTotal } from "../../../slices/basketSlice";
+import { ProductProps } from "../../../../types";
 import styles from "./Checkout.module.css";
 import CheckoutProduct from "./CheckoutProduct";
 import Price from "../(productsFeed)/(attributes)/Price";

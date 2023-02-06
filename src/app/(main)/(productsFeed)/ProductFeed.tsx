@@ -1,7 +1,7 @@
 import React, { ReactElement } from "react";
 import Product from "./Product";
 import styles from "./ProductFeed.module.css";
-import { ProductProps } from "../../../types";
+import { ProductProps } from "../../../../types";
 
 export default function ProductFeed(): ReactElement {
   const fetchProducts = async () => {

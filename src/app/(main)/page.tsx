@@ -1,6 +1,6 @@
 import React from "react";
 import { ReactElement } from "react";
-import Banner from "../app/(productsFeed)/Banner";
+import Banner from "../(main)/(productsFeed)/Banner";
 import ProductFeed from "./(productsFeed)/ProductFeed";
 import styles from "./Index.module.css";
 
