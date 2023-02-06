@@ -2,11 +2,11 @@
 import React, { ReactElement, useEffect, useState } from "react";
 import styles from "./Product.module.css";
 import { useDispatch } from "react-redux";
-import { addToBasket } from "../../slices/basketSlice";
+import { addToBasket } from "../../../slices/basketSlice";
 import Price from "./(attributes)/Price";
 import Stars from "./(attributes)/Stars";
 import Prime from "./(attributes)/Prime";
-import { ProductProps } from "../../../types";
+import { ProductProps } from "../../../../types";
 
 function Product({
   productProps,

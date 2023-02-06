@@ -4,7 +4,7 @@ import Link from "next/link";
 import styles from "./Header.module.css";
 import { signOut, useSession } from "next-auth/react";
 import { ChevronDownIcon } from "@heroicons/react/24/outline";
-import { DropDownItem } from "../../../types";
+import { DropDownItem } from "../../../../types";
 
 function AccountMenu() {
   const { data: session } = useSession();

@@ -1,9 +1,9 @@
 "use client";
 import React, { ReactElement } from "react";
 import { useDispatch } from "react-redux";
-import { addToBasket, removeFromBasket } from "../../slices/basketSlice";
+import { addToBasket, removeFromBasket } from "../../../slices/basketSlice";
 import styles from "./CheckoutProduct.module.css";
-import { ProductProps } from "../../../types";
+import { ProductProps } from "../../../../types";
 import Price from "../(productsFeed)/(attributes)/Price";
 import Prime from "../(productsFeed)/(attributes)/Prime";
 import Stars from "../(productsFeed)/(attributes)/Stars";

@@ -1,6 +1,6 @@
 import styles from "./Signin.module.css";
 import Link from "next/link";
-import "../../globals.css";
+import "../../../app/(main)/globals.css";
 import SignInButton from "./SignInButton";
 
 export default function SignIn() {

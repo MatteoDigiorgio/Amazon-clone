@@ -3,7 +3,7 @@ import React from "react";
 import Link from "next/link";
 import styles from "./Header.module.css";
 import { useSelector } from "react-redux";
-import { selectItems } from "../../slices/basketSlice";
+import { selectItems } from "../../../slices/basketSlice";
 import { ShoppingCartIcon } from "@heroicons/react/24/outline";
 
 function Basket() {
