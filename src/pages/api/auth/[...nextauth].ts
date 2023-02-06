@@ -15,6 +15,7 @@ export const authOptions = {
       },
     }),
   ],
+  secret: process.env.JWT_SECRET,
   pages: {
     signIn: "/auth/signin",
     error: "/auth/error", // Error code passed in query string as ?error=

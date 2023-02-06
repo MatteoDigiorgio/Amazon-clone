@@ -1,17 +1,28 @@
 "use client";
 import React from "react";
 import styles from "./Signin.module.css";
-import { ClientSafeProvider, LiteralUnion, signIn } from "next-auth/react";
+import {
+  ClientSafeProvider,
+  getProviders,
+  LiteralUnion,
+  signIn,
+} from "next-auth/react";
 import { BuiltInProviderType } from "next-auth/providers";
+import { useEffect, useState } from "react";
 
-function SignInButton({
-  providers,
-}: {
-  providers: Record<
+function SignInButton() {
+  const [providers, setProviders] = useState<Record<
     LiteralUnion<BuiltInProviderType, string>,
     ClientSafeProvider
-  > | null;
-}) {
+  > | null>();
+
+  useEffect(() => {
+    (async () => {
+      const res = await getProviders();
+      setProviders(res);
+    })();
+  }, []);
+
   return (
     <>
       {providers &&
