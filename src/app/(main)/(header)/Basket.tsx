@@ -13,7 +13,7 @@ function Basket() {
       <>
         <div className={styles.basket}>
           <p className={styles.counter}>{items.length}</p>
-          <Link href="/checkout">
+          <Link title="Checkout" href="/checkout">
             <ShoppingCartIcon height={40} />
             <p>Basket</p>
           </Link>

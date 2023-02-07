@@ -6,37 +6,38 @@ import { signOut, useSession } from "next-auth/react";
 import { ChevronDownIcon } from "@heroicons/react/24/outline";
 import { DropDownItem } from "../../../../types";
 
+const dropDownItemsData: Array<DropDownItem> = [
+  { page: "/", text: "Account" },
+  { page: "/", text: "Orders" },
+  { page: "/", text: "Wish list" },
+  { page: "/", text: "Recommendations" },
+  { page: "/", text: "Kindle Unlimited" },
+  { page: "/", text: "Prime Membership" },
+  { page: "/", text: "Browsing History" },
+  { page: "/", text: "Video Purchases & Rentals" },
+  { page: "/", text: "Content & Devices" },
+  { page: "/", text: "Subscribe & Save Items" },
+  { page: "/", text: "Amazon Credit Cards" },
+  { page: "/", text: "Music Library" },
+  { page: "/", text: "Customer Service" },
+  { page: "/auth/signin", text: "LogIn" },
+  { page: "/", text: "Exit" },
+];
+
+const DropDownItem = (props: { key: string; item: DropDownItem }) => {
+  return (
+    <li>
+      <Link title={`${props.item.text}`} passHref href={`${props.item.page}`}>
+        <p onClick={props.item.text === "Exit" ? () => signOut() : void 0}>
+          {props.item.text}
+        </p>
+      </Link>
+    </li>
+  );
+};
+
 function AccountMenu() {
   const { data: session } = useSession();
-  const dropDownItemsData: Array<DropDownItem> = [
-    { page: "/", text: "Account" },
-    { page: "/", text: "Orders" },
-    { page: "/", text: "Wish list" },
-    { page: "/", text: "Recommendations" },
-    { page: "/", text: "Kindle Unlimited" },
-    { page: "/", text: "Prime Membership" },
-    { page: "/", text: "Browsing History" },
-    { page: "/", text: "Video Purchases & Rentals" },
-    { page: "/", text: "Content & Devices" },
-    { page: "/", text: "Subscribe & Save Items" },
-    { page: "/", text: "Amazon Credit Cards" },
-    { page: "/", text: "Music Library" },
-    { page: "/", text: "Customer Service" },
-    { page: "/auth/signin", text: "LogIn" },
-    { page: "/", text: "Exit" },
-  ];
-
-  const DropDownItem = (props: { key: string; item: DropDownItem }) => {
-    return (
-      <li>
-        <Link passHref href={`${props.item.page}`}>
-          <p onClick={props.item.text === "Exit" ? () => signOut() : void 0}>
-            {props.item.text}
-          </p>
-        </Link>
-      </li>
-    );
-  };
 
   return (
     <div className={styles.accountList}>

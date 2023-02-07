@@ -18,8 +18,6 @@ function Banner() {
         <div>
           <img
             alt="Audible ORIGINAL advertisement"
-            width="auto"
-            height="auto"
             loading="lazy"
             src="https://links.papareact.com/gi1"
           />
@@ -27,8 +25,6 @@ function Banner() {
         <div>
           <img
             alt="prime video advertisement"
-            width="auto"
-            height="auto"
             loading="lazy"
             src="https://links.papareact.com/6ff"
           />
@@ -36,8 +32,6 @@ function Banner() {
         <div>
           <img
             alt="Amazon music advertisement limited time"
-            width="auto"
-            height="auto"
             loading="lazy"
             src="https://links.papareact.com/7ma"
           />
