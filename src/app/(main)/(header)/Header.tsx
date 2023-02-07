@@ -9,11 +9,9 @@ function Header() {
   const AmazonLogo = () => {
     return (
       <div className={styles.amazonLogo}>
-        <Link passHref href="/">
+        <Link title="Home" passHref href="/">
           <img
             alt="Amazon Logo"
-            width="auto"
-            height="auto"
             src="https://links.papareact.com/f90"
             className={styles.amazonImage}
           />

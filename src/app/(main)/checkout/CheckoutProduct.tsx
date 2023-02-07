@@ -26,8 +26,6 @@ function Checkout({
     return (
       <img
         src={productProps.image}
-        height="auto"
-        width="auto"
         alt="Product"
         className={styles.image}
       />
