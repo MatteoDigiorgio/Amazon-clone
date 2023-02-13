@@ -7,19 +7,40 @@ import { ProductProps } from "../../../../types";
 import styles from "./Checkout.module.css";
 import CheckoutProduct from "./CheckoutProduct";
 import Price from "../(productsFeed)/(attributes)/Price";
+import { loadStripe } from "@stripe/stripe-js";
+import axios from "axios";
+
+const stripePromise = loadStripe(
+  process.env.stripe_public_key ? process.env.stripe_public_key : ""
+);
+
+const PrimeDayImage = () => {
+  return (
+    <img
+      alt="Prime Day"
+      src="https://links.papareact.com/ikj"
+      className={styles.primeDayImage}
+    />
+  );
+};
 
 function Checkout() {
-  const PrimeDayImage = () => {
-    return (
-      <img
-        alt="Prime Day"
-        src="https://links.papareact.com/ikj"
-        className={styles.primeDayImage}
-      />
-    );
-  };
-
   const items: Array<ProductProps> = useSelector(selectItems);
+  const { data: session } = useSession();
+
+  const createCheckoutSession = async () => {
+    const stripe = await stripePromise;
+    const checkoutSession = await axios.post("/api/checkout-session", {
+      items: items,
+      email: session?.user?.email,
+    });
+
+    const result = await stripe?.redirectToCheckout({
+      sessionId: checkoutSession.data.id,
+    });
+
+    if (result?.error) alert(result.error.message);
+  };
 
   const Products = () => {
     return (
@@ -36,7 +57,6 @@ function Checkout() {
   };
 
   const Subtotal = () => {
-    const { data: session } = useSession();
     const total = useSelector(selectTotal);
     return (
       <>
@@ -48,6 +68,8 @@ function Checkout() {
         </h2>
 
         <button
+          role="link"
+          onClick={createCheckoutSession}
           disabled={!session}
           className={session ? styles.button : styles.button__notSignIn}
         >
