@@ -7,4 +7,8 @@ module.exports = {
   images: {
     domains: ["fakestoreapi.com", "links.papareact.com"],
   },
+  env: {
+    // eslint-disable-next-line no-undef
+    stripe_public_key: process.env.STRIPE_PUBLIC_KEY,
+  },
 };
