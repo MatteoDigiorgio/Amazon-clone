@@ -2,12 +2,13 @@ import { Request, Response } from "express";
 import { buffer } from "micro";
 import { ServiceAccount } from "firebase-admin";
 import * as admin from "firebase-admin";
-import serviceAccount from "../../../permissions.json";
 import Stripe from "stripe";
 
 const app = !admin.apps.length
   ? admin.initializeApp({
-      credential: admin.credential.cert(<ServiceAccount>serviceAccount),
+      credential: admin.credential.cert(
+        <ServiceAccount>process.env.FIREBASE_SERVICE_ACCOUNT_KEY
+      ),
     })
   : admin.app();
 
@@ -16,7 +17,7 @@ const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 const endpointSecret = process.env.STRIPE_SIGNING_SECRET;
 
 const fulfillOrder = async (session: Stripe.Checkout.Session) => {
-  console.log("Fulfilling order", session);
+  // console.log("Fulfilling order", session);
   return app
     .firestore()
     .collection("user")
