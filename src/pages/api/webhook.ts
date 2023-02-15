@@ -4,7 +4,7 @@ import { ServiceAccount } from "firebase-admin";
 import * as admin from "firebase-admin";
 import serviceAccount from "../../../permissions.json";
 import Stripe from "stripe";
-console.log("000");
+
 const app = !admin.apps.length
   ? admin.initializeApp({
       credential: admin.credential.cert(<ServiceAccount>serviceAccount),
@@ -39,7 +39,6 @@ const fulfillOrder = async (session: Stripe.Checkout.Session) => {
 };
 
 export default async (req: Request, res: Response) => {
-  console.log("111");
   if (req.method === "POST") {
     const requestBuffer = await buffer(req);
     const payload = requestBuffer.toString();
