@@ -1,0 +1,47 @@
+.success_page {
+  background-color: var(--background-gray);
+  height: 100vh;
+}
+
+.success_page > main {
+  max-width: 1024px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.success_page > main .success_container {
+  display: flex;
+  padding: 2.5rem;
+  background-color: #ffffff;
+  flex-direction: column;
+}
+
+.success_page > main .success_container .headline {
+  display: flex;
+  margin-bottom: 1.25rem;
+  margin-left: 0.5rem;
+}
+
+.success_page > main .success_container .headline .checkIcon {
+  color: #10b981;
+  height: 2.5rem;
+}
+
+.success_page > main .success_container .headline > h1 {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+}
+
+.success_page > main .success_container > p {
+}
+.success_page > main .success_container > button {
+  margin-top: 2rem;
+  border-width: 1px;
+  border-color: #fcd34d;
+  border-radius: 0.125rem;
+  background-image: linear-gradient(#fde68a, var(--yellow));
+  cursor: pointer;
+  padding: 0.5rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
