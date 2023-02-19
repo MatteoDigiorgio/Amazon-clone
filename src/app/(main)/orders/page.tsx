@@ -1,4 +1,3 @@
-// "use client";
 import React from "react";
 import Items from "./Items";
 import styles from "./Orders.module.css";
