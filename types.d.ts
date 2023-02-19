@@ -23,3 +23,12 @@ export type DropDownItem = {
   page: string;
   text: string;
 };
+
+export type OrderProps = {
+  id: any;
+  amount: any;
+  amountShipping: any;
+  images: any;
+  timestamp: number;
+  items: any;
+};
