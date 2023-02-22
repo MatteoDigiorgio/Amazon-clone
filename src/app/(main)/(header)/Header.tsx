@@ -69,8 +69,8 @@ function Header() {
           <Orders />
 
           <div>
-            <Link title="Checkout" passHref href="checkout">
-              <p>Returns</p>
+            <Link title="Checkout" href="/checkout">
+              Returns
             </Link>
           </div>
         </div>
