@@ -25,10 +25,10 @@ export type DropDownItem = {
 };
 
 export type OrderProps = {
-  id: any;
-  amount: any;
-  amountShipping: any;
-  images: any;
+  id: string;
+  amount: number;
+  amountShipping: number;
+  images: string[];
   timestamp: number;
-  items: any;
+  items: object[];
 };

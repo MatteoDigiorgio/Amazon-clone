@@ -8,7 +8,7 @@ import { DropDownItem } from "../../../../types";
 
 const dropDownItemsData: Array<DropDownItem> = [
   { page: "/", text: "Account" },
-  { page: "/", text: "Orders" },
+  { page: "/orders", text: "Orders" },
   { page: "/", text: "Wish list" },
   { page: "/", text: "Recommendations" },
   { page: "/", text: "Kindle Unlimited" },

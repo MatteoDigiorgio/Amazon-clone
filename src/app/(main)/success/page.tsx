@@ -1,16 +1,10 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 import styles from "./Success.module.css";
 import { CheckCircleIcon } from "@heroicons/react/24/solid";
-import { redirect } from "next/navigation";
+import Link from "next/link";
 
 function success() {
-  const [redirectToOrders, setredirectToOrders] = useState(false);
-
-  if (redirectToOrders) {
-    redirect("/orders");
-  }
-
   return (
     <div className={styles.success_page}>
       <main>
@@ -24,9 +18,11 @@ function success() {
             item has shipped, if you would like to check the status of your
             order(s) please press the button below
           </p>
-          <button onClick={() => setredirectToOrders(true)}>
-            Go to my orders
-          </button>
+          <div>
+            <Link title="Orders" passHref href="/orders">
+              <button>Go to my orders</button>
+            </Link>
+          </div>
         </div>
       </main>
     </div>

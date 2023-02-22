@@ -175,6 +175,10 @@
   font-weight: 800;
 }
 
+.header__topNav .rightSection .orders > a:visited {
+  color: white;
+}
+
 /* TOP NAV ~ BASKET */
 .header__topNav .rightSection .basket {
   position: relative;

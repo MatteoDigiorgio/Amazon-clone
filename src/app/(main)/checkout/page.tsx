@@ -8,7 +8,6 @@ import styles from "./Checkout.module.css";
 import CheckoutProduct from "./CheckoutProduct";
 import Price from "../(productsFeed)/(attributes)/Price";
 import { loadStripe } from "@stripe/stripe-js";
-import axios from "axios";
 
 const stripePromise = loadStripe(
   process.env.stripe_public_key ? process.env.stripe_public_key : ""
@@ -30,13 +29,22 @@ function Checkout() {
 
   const createCheckoutSession = async () => {
     const stripe = await stripePromise;
-    const checkoutSession = await axios.post("/api/checkout-session", {
-      items: items,
-      email: session?.user?.email,
+
+    const response = await fetch("/api/checkout-session", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        items: items,
+        email: session?.user?.email,
+      }),
     });
 
+    const data = await response.json();
+
     const result = await stripe?.redirectToCheckout({
-      sessionId: checkoutSession.data.id,
+      sessionId: data.id,
     });
 
     if (result?.error) alert(result.error.message);
