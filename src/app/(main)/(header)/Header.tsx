@@ -35,9 +35,11 @@ function Header() {
 
   const Orders = () => {
     return (
-      <div>
-        <p>Returns</p>
-        <p className={styles.bold}>& Orders</p>
+      <div className={styles.orders}>
+        <Link title="Orders" passHref href="/orders">
+          <p>Returns</p>
+          <p className={styles.bold}>& Orders</p>
+        </Link>
       </div>
     );
   };
