@@ -68,7 +68,11 @@ function Header() {
           <AccountMenu />
           <Orders />
 
-          <Basket />
+          <div>
+            <Link title="Checkout" passHref href="/checkout">
+              <p>Returns</p>
+            </Link>
+          </div>
         </div>
       </div>
       {/* Bottom nav */}
