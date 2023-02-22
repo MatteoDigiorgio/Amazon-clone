@@ -6,23 +6,26 @@ import { useSelector } from "react-redux";
 import { selectItems } from "../../../slices/basketSlice";
 import { ShoppingCartIcon } from "@heroicons/react/24/outline";
 
-function Checkout() {
-  const items = useSelector(selectItems);
+function Checkout({ items }) {
   return (
     <>
       <div className={styles.basket}>
         <p className={styles.counter}>{items.length}</p>
-        <Link title="Checkout" passHref href="/checkout">
-          <ShoppingCartIcon height={40} />
-          <p>Basket</p>
-        </Link>
+        <ShoppingCartIcon height={40} />
+        <p>Basket</p>
       </div>
     </>
   );
 }
 
 function Basket() {
-  return <Checkout />;
+  const items = useSelector(selectItems);
+
+  return (
+    <Link href="/checkout" passHref>
+        <Checkout items={items} />
+    </Link>
+  );
 }
 
 export default Basket;
