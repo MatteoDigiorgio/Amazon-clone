@@ -30,5 +30,5 @@ export type OrderProps = {
   amountShipping: number;
   images: string[];
   timestamp: number;
-  items: object[];
+  items: { description: ItemDescription }[];
 };

@@ -34,7 +34,7 @@ function Order({ orderProps }: { orderProps: OrderProps }) {
         <div className={styles.table_body}>
           <div className={styles.images}>
             <div>
-              {orderProps.images.map((image: string, i: number) => (
+              {orderProps.images.map((image, i: number) => (
                 <img
                   src={image}
                   alt={orderProps.items[i]["description"]}
