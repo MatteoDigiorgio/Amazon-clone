@@ -66,7 +66,7 @@ function Header() {
         <SearchBar />
         <div className={styles.rightSection}>
           <AccountMenu />
-          <Orders />
+          
 
           <div>
             <Link title="Checkout" href="/checkout">
