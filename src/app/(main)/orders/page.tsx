@@ -37,45 +37,8 @@ async function Orders() {
 }
 
 export async function getOrders() {
-  const session = {
-    user: {
-      email: "",
-    },
-  };
-
-  if (!session) {
-    // eslint-disable-next-line @typescript-eslint/no-var-requires
-    const stripe = await require("stripe")(process.env.STRIPE_SECRET_KEY);
-
-    const stripeOrders = await db
-      .collection("user")
-      .doc(session?.user?.email ? session.user.email : "")
-      .collection("orders")
-      .orderBy("timestamp", "desc")
-      .get();
-
-    const order = await Promise.all(
-      stripeOrders.docs.map(async (order) => ({
-        id: order.id,
-        amount: order.data().amount,
-        amountShipping: order.data().amount_shipping,
-        images: order.data().images,
-        timestamp: moment(order.data().timestamp.toDate()).unix(),
-        items: (
-          await stripe.checkout.sessions.listLineItems(order.id, {
-            limit: 100,
-          })
-        ).data,
-      }))
-    );
-    console.log(order);
-    // eslint-disable-next-line prefer-const
-    const orders: OrderProps[] = order;
-    return orders;
-  } else {
     const orders: OrderProps[] = [];
     return orders;
-  }
 }
 
 export default Orders;
