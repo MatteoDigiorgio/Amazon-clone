@@ -8,7 +8,7 @@ import { authOptions } from "../../../pages/api/auth/[...nextauth]";
 
 async function Orders() {
   const session = false;
-  const orders = await getOrders();
+  const orders: OrderProps[] = [];
 
   return (
     <div className={styles.orders_page}>
@@ -34,11 +34,6 @@ async function Orders() {
       </main>
     </div>
   );
-}
-
-export async function getOrders() {
-    const orders: OrderProps[] = [];
-    return orders;
 }
 
 export default Orders;
