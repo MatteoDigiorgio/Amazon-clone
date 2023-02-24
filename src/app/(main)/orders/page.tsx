@@ -4,11 +4,10 @@ import Order from "./Order";
 import db from "../../../../firebase";
 import moment from "moment";
 import { OrderProps } from "../../../../types";
-import { unstable_getServerSession } from "next-auth";
 import { authOptions } from "../../../pages/api/auth/[...nextauth]";
 
 async function Orders() {
-  const session = await unstable_getServerSession(authOptions);
+  const session = false;
   const orders = await getOrders();
 
   return (
@@ -38,7 +37,7 @@ async function Orders() {
 }
 
 export async function getOrders() {
-  const session = await unstable_getServerSession(authOptions);
+  const session = false;
 
   if (session) {
     // eslint-disable-next-line @typescript-eslint/no-var-requires
