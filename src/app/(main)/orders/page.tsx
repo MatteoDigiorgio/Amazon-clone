@@ -37,9 +37,13 @@ async function Orders() {
 }
 
 export async function getOrders() {
-  const session = false;
+  const session = {
+    user: {
+      email: "",
+    },
+  };
 
-  if (session) {
+  if (!session) {
     // eslint-disable-next-line @typescript-eslint/no-var-requires
     const stripe = await require("stripe")(process.env.STRIPE_SECRET_KEY);
 
