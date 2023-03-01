@@ -4,9 +4,9 @@ import Link from "next/link";
 import styles from "./Header.module.css";
 import { signOut, useSession } from "next-auth/react";
 import { ChevronDownIcon } from "@heroicons/react/24/outline";
-import { DropDownItem } from "../../../../types";
+import { DropDownItemProps } from "../../../../types";
 
-const dropDownItemsData: Array<DropDownItem> = [
+const dropDownItemsData: Array<DropDownItemProps> = [
   { page: "/", text: "Account" },
   { page: "/orders", text: "Orders" },
   { page: "/", text: "Wish list" },
@@ -24,7 +24,7 @@ const dropDownItemsData: Array<DropDownItem> = [
   { page: "/", text: "Exit" },
 ];
 
-const DropDownItem = (props: { key: string; item: DropDownItem }) => {
+const DropDownItem = (props: { key: string; item: DropDownItemProps }) => {
   return (
     <li>
       <Link title={`${props.item.text}`} passHref href={`${props.item.page}`}>

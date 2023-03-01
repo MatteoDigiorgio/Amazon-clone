@@ -19,7 +19,7 @@ export type ProductProps = {
   hasPrime: boolean;
 };
 
-export type DropDownItem = {
+export type DropDownItemProps = {
   page: string;
   text: string;
 };
