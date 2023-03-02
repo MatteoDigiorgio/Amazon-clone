@@ -1,4 +1,5 @@
 import { fetchProducts } from "../src/app/(main)/(productsFeed)/ProductFeed";
+import { ProductProps } from "../types";
 import mockData from "../__tests__/_mocks";
 
 describe("fetchProducts", () => {
@@ -27,7 +28,7 @@ describe("fetchProducts", () => {
 
   // Create a test case that checks if the fetchProducts function returns an array of products
   it("should return an array of products", async () => {
-    const products = await fetchProducts();
+    const products: ProductProps[] = await fetchProducts();
     expect(products.length).toBeGreaterThan(0);
   });
 });
