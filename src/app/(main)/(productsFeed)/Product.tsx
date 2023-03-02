@@ -8,73 +8,67 @@ import Stars from "./(attributes)/Stars";
 import Prime from "./(attributes)/Prime";
 import { ProductProps } from "../../../../types";
 
+export const ProductImage = ({ product }: { product: ProductProps }) => {
+  return (
+    <img
+      src={product?.image}
+      height={200}
+      width={200}
+      alt="Product"
+      className={styles.image}
+    />
+  );
+};
+
+export const ProductAttributes = ({ product }: { product: ProductProps }) => {
+  return (
+    <>
+      <p className={styles.category}>{product.category}</p>
+      <h4 className={styles.title}>{product.title}</h4>
+      <Stars product={{ rating: product.rating, id: product.id }} />
+      <p className={styles.description}>{product.description}</p>
+      <div className={styles.currency}>
+        <Price price={product.price} />
+      </div>
+      <Prime hasPrime={product.hasPrime} />
+    </>
+  );
+};
+
+export const Button = ({ product }: { product: ProductProps }) => {
+  const dispatch = useDispatch();
+  const addItemToBasket = () => {
+    dispatch(addToBasket(product));
+  };
+
+  return (
+    <button
+      aria-label="Add item to basket"
+      onClick={addItemToBasket}
+      className={styles.button}
+    >
+      Add to Basket
+    </button>
+  );
+};
+
 function Product({
   productProps,
 }: {
   productProps: ProductProps;
 }): ReactElement {
   const [hasPrime] = useState(Math.random() < 0.5);
-  const [product, setProduct] = useState({
-    id: 0,
-    key: 0,
-    category: "",
-    image: "",
-    title: "",
-    rating: { rate: 0, count: 0 },
-    description: "",
-    price: 0,
-    hasPrime: hasPrime,
-  });
+  const [product, setProduct] = useState(productProps);
 
   useEffect(() => {
-    setProduct(productProps);
+    setProduct({ ...productProps, hasPrime });
   }, []);
-
-  const ProductImage = () => {
-    return (
-      <img
-        src={product?.image}
-        height={200}
-        width={200}
-        alt="Product"
-        className={styles.image}
-      />
-    );
-  };
-
-  const ProductProps = () => {
-    return (
-      <>
-        <p className={styles.category}>{product.category}</p>
-        <h4 className={styles.title}>{product.title}</h4>
-        <Stars product={{ rating: product.rating, id: product.id }} />
-        <p className={styles.description}>{product.description}</p>
-        <div className={styles.currency}>
-          <Price price={product.price} />
-        </div>
-        <Prime hasPrime={product.hasPrime} />
-      </>
-    );
-  };
-
-  const Button = () => {
-    const dispatch = useDispatch();
-    const addItemToBasket = () => {
-      dispatch(addToBasket(product));
-    };
-
-    return (
-      <button onClick={addItemToBasket} className={styles.button}>
-        Add to Basket
-      </button>
-    );
-  };
 
   return (
     <div className={styles.product}>
-      <ProductImage />
-      <ProductProps />
-      <Button />
+      <ProductImage product={product} />
+      <ProductAttributes product={product} />
+      <Button product={product} />
     </div>
   );
 }
