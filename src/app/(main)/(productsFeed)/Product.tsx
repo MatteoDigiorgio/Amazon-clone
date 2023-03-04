@@ -8,6 +8,7 @@ import Stars from "./(attributes)/Stars";
 import Prime from "./(attributes)/Prime";
 import { ProductProps } from "../../../../types";
 
+// Component for rendering the product image
 export const ProductImage = ({ product }: { product: ProductProps }) => {
   return (
     <img
@@ -20,6 +21,7 @@ export const ProductImage = ({ product }: { product: ProductProps }) => {
   );
 };
 
+// Component for rendering the product attributes
 export const ProductAttributes = ({ product }: { product: ProductProps }) => {
   return (
     <>
@@ -35,6 +37,7 @@ export const ProductAttributes = ({ product }: { product: ProductProps }) => {
   );
 };
 
+// Component for rendering the add-to-basket button
 export const Button = ({ product }: { product: ProductProps }) => {
   const dispatch = useDispatch();
   const addItemToBasket = () => {
@@ -60,6 +63,7 @@ function Product({
   const [hasPrime] = useState(Math.random() < 0.5);
   const [product, setProduct] = useState(productProps);
 
+  // Update product state to include hasPrime value on mount
   useEffect(() => {
     setProduct({ ...productProps, hasPrime });
   }, []);

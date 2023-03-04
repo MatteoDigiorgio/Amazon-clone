@@ -6,8 +6,8 @@ export const MockProduct = {
   description: "Description",
   category: "Category",
   image: "https://image.jpeg",
-  rating: { count: 567, rate: 8.9 },
-  hasPrime: false,
+  rating: { count: 567, rate: 3.3 },
+  hasPrime: true,
 };
 
 export default {

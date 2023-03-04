@@ -8,16 +8,14 @@ function Stars({
 }: {
   product: { rating: ProductProps["rating"]; id: ProductProps["id"] };
 }) {
-  const [rate] = useState(
-    Math.round(product.rating.rate ? product.rating.rate : 0)
-  );
+  const [rate] = useState(Math.round(product.rating.rate)); // Destructure and set initial state of rate from the rating property in product object
   return (
     <div className={styles.rating}>
-      {Array(rate)
+      {Array(rate) // Create an array of length 'rate'
         .fill(rate)
         .map((_, i) => (
           <StarIcon
-            key={`Star-${product.id ? product.id : ""}-${Math.random()}`}
+            key={`Star-${product.id}-${Math.random()}`} // Set unique key for each StarIcon
             className={styles.stars}
           />
         ))}
