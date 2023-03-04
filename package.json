@@ -37,6 +37,10 @@
       "/node_modules/",
       "/test/"
     ],
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "./src/app/**"
+    ],
     "coverageThreshold": {
       "global": {
         "branches": 92,
@@ -44,8 +48,7 @@
         "lines": 95,
         "statements": 95
       }
-    },
-    "collectCoverage": true
+    }
   },
   "dependencies": {
     "@heroicons/react": "^2.0.13",
