@@ -6,7 +6,7 @@ function Prime({ hasPrime }: { hasPrime: boolean }) {
     <>
       {/* If "hasPrime" is true, then show the Prime shipping message and image */}
       {hasPrime && (
-        <div className={styles.prime}>
+        <div title="Has Prime" className={styles.prime}>
           <img src="https://links.papareact.com/fdw" alt="Prime shipping" />
           <p>FREE Next-day Delivery</p>
         </div>
