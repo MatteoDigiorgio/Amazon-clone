@@ -15,7 +15,7 @@ export const ProductImage = ({ product }: { product: ProductProps }) => {
       src={product?.image}
       height={200}
       width={200}
-      alt="Product"
+      alt={product.description}
       className={styles.image}
     />
   );
@@ -69,7 +69,7 @@ function Product({
   }, []);
 
   return (
-    <div className={styles.product}>
+    <div title="Product" className={styles.product}>
       <ProductImage product={product} />
       <ProductAttributes product={product} />
       <Button product={product} />
