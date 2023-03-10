@@ -24,7 +24,10 @@ const dropDownItemsData: Array<DropDownItemProps> = [
   { page: "/", text: "Exit" },
 ];
 
-const DropDownItem = (props: { key: string; item: DropDownItemProps }) => {
+export const DropDownItem = (props: {
+  key: string;
+  item: DropDownItemProps;
+}) => {
   return (
     <li>
       <Link title={`${props.item.text}`} passHref href={`${props.item.page}`}>
