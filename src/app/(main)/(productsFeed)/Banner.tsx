@@ -41,7 +41,7 @@ const CarouselAds = () => {
 
 function Banner() {
   return (
-    <div className={styles.banner}>
+    <div data-testid="Banner" className={styles.banner}>
       <CarouselAds />
       {/* Container that overlay the carousel from gray to transparent */}
       <div

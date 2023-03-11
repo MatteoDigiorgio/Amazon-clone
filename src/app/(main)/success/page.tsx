@@ -4,7 +4,7 @@ import styles from "./Success.module.css";
 import { CheckCircleIcon } from "@heroicons/react/24/solid";
 import Link from "next/link";
 
-function success() {
+function Success() {
   return (
     <div className={styles.success_page}>
       <main>
@@ -29,4 +29,4 @@ function success() {
   );
 }
 
-export default success;
+export default Success;
